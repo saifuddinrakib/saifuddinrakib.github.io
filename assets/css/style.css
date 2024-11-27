@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #fff;
+  color: #ccd6f6;
   position: relative;
   background: transparent;
 }
@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #dee2e6;
+  color: #ccd6f6;
   line-height: 1;
   display: inline-block;
 }
@@ -105,7 +105,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: #ccd6f6;
   line-height: 1;
   margin-right: 8px;
   border-radius: 50%;
@@ -157,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: block;
   position: relative;
-  color: #fff;
+  color: #ccd6f6;
   font-size: 19px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -203,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .mobile-nav {
@@ -232,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav a {
   display: block;
   position: relative;
-  color: #fff;
+  color: #ccd6f6;
   padding: 10px 20px;
   font-weight: 500;
   outline: none;
@@ -266,7 +266,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav-active .mobile-nav-toggle i {
-  color: #fff;
+  color: #ccd6f6;
 }
 
 /* Header Top */
@@ -348,7 +348,7 @@ section .container {
   margin: 0 0 20px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #dee2e6;
+  color: #ccd6f6;
   font-family: "Poppins", sans-serif;
 }
 
@@ -357,7 +357,7 @@ section .container {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #dee2e6;
+  background: #ccd6f6;
   margin: 4px 10px;
 }
 
@@ -368,7 +368,7 @@ section .container {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+  color: #ccd6f6;
 }
 
 /*--------------------------------------------------------------
@@ -430,7 +430,7 @@ section .container {
   font-size: 36px;
   display: block;
   font-weight: 600;
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .counts .count-box p {
@@ -456,7 +456,7 @@ section .container {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .skills .progress .skill .val {
@@ -499,7 +499,7 @@ section .container {
   padding: 0;
   line-height: 1;
   font-size: 16px;
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .interests .icon-box:hover {
@@ -527,7 +527,7 @@ section .container {
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0 5px 45px;
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .testimonials .testimonial-item h4 {
