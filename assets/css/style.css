@@ -862,7 +862,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #64ffda;
+  color: #63eda3;
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -1038,7 +1038,7 @@ section .container {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #64ffda;
+  background: #1c7d32;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1049,7 +1049,7 @@ section .container {
 .contact .php-email-form button[type="submit"]:hover {
   background: #64ffda;
 }
-/* Existing animation for rotation */
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -1067,26 +1067,6 @@ section .container {
     transform: rotate(360deg);
   }
 }
-
-/* New animation for blinking cursor */
-@keyframes blinkingCursor {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Apply blinking animation to the cursor */
-.styles-module_blinkingCursor__yugAC {
-  animation: blinkingCursor 1s infinite;
-  color: rgb(104, 178, 160); /* Custom cursor color */
-}
-
 
 /*--------------------------------------------------------------
 # Credits
