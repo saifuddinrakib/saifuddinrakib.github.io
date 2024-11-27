@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header h2 span {
   color: #ffc107;
-  border-bottom: 2px solid #1c7d32;
+  border-bottom: 2px solid #64ffda;
   padding-bottom: 6px;
 }
 
@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .social-links a:hover {
-  background: #1c7d32;
+  background: #64ffda;
 }
 
 @media (max-width: 992px) {
@@ -182,7 +182,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #12d640;
+  color: #64ffda;
   text-decoration: none;
 }
 
@@ -239,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
-  color: #1c7d32;
+  color: #64ffda;
   text-decoration: none;
 }
 
@@ -377,7 +377,7 @@ section .container {
 .about-me .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #1c7d32;
+  color: #64ffda;
 }
 
 .about-me .content ul {
@@ -392,7 +392,7 @@ section .container {
 .about-me .content ul i {
   font-size: 20px;
   padding-right: 2px;
-  color: #1c7d32;
+  color: #64ffda;
 }
 
 .about-me .content p:last-child {
@@ -422,7 +422,7 @@ section .container {
   font-size: 24px;
   background: rgba(255, 255, 255, 0.1);
   padding: 12px;
-  color: #1c7d32;
+  color: #64ffda;
   border-radius: 50px;
 }
 
@@ -472,7 +472,7 @@ section .container {
   width: 1px;
   height: 10px;
   transition: .9s;
-  background-color: #1c7d32;
+  background-color: #64ffda;
 }
 
 /*--------------------------------------------------------------
@@ -580,7 +580,7 @@ section .container {
 }
 
 .testimonials .owl-dot.active {
-  background-color: #1c7d32 !important;
+  background-color: #64ffda !important;
 }
 
 @media (max-width: 767px) {
@@ -613,7 +613,7 @@ section .container {
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #1c7d32;
+  color: #64ffda;
   margin-bottom: 10px;
 }
 
