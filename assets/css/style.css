@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h2 span {
-  color: #ffc107;
+  color: #679cda;
   border-bottom: 2px solid #64ffda;
   padding-bottom: 6px;
 }
@@ -487,7 +487,7 @@ section .container {
 .portfolio-wrap img {
   width: 100%;
   height: auto;
-  border-bottom: 2px solid #64ffda;
+  border-bottom: 2px solid #bac7f1;
 }
 
 .portfolio-info {
@@ -935,22 +935,21 @@ section .container {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 1;
+  opacity: 1; /* This ensures the dark overlay is visible */
 }
 
 .portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1;
+  opacity: 1; /* Ensure info content is displayed */
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info::before {
-  top: 15px;
-  left: 15px;
-}
-
+.portfolio .portfolio-wrap:hover .portfolio-info::before,
 .portfolio .portfolio-wrap:hover .portfolio-info::after {
+  top: 15px; /* Adjust corner animation */
+  left: 15px;
   bottom: 15px;
   right: 15px;
 }
+
 
 /*--------------------------------------------------------------
 # Contact
