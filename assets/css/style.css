@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #ccd6f6;
+  color: #fff;
   position: relative;
   background: transparent;
 }
@@ -18,7 +18,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #0A192F;
+  background: #010e1b;
   background-size: cover;
   left: 0;
   right: 0;
@@ -33,11 +33,11 @@ body::before {
 }
 
 a {
-  color: #64ffda;
+  color: #12d640;
 }
 
 a:hover {
-  color: #64ffda;
+  color: #12d640;
   text-decoration: none;
 }
 
@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #ccd6f6;
+  color: #dee2e6;
   line-height: 1;
   display: inline-block;
 }
@@ -441,22 +441,47 @@ section .container {
 }
 
 /*--------------------------------------------------------------
-# Portfolio Section
+# Skills
 --------------------------------------------------------------*/
-.portfolio {
-  padding: 60px 0;
+.skills .progress {
+  height: 50px;
+  display: block;
+  background: none;
 }
 
-.portfolio .section-title {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.portfolio .section-title h2 {
-  font-size: 36px;
-  font-weight: 600;
+.skills .progress .skill {
+  padding: 0;
+  margin: 0 0 6px 0;
   text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
   color: #ccd6f6;
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.skills .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: .9s;
+  background-color: #64ffda;
+}
+
+/*-------------------
+# Education
+-------------------*/
+
+
+.portfolio {
+  padding: 0; /* Adjust or remove padding as needed */
 }
 
 .portfolio-container {
@@ -464,65 +489,6 @@ section .container {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 30px;
-}
-
-.portfolio-item {
-  position: relative;
-  width: calc(33.33% - 20px); /* Adjusted width for 3 items in a row */
-  margin-bottom: 30px;
-}
-
-.portfolio-wrap {
-  position: relative;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.portfolio-wrap:hover {
-  transform: translateY(-10px);
-}
-
-.portfolio-wrap img {
-  width: 100%;
-  height: auto;
-  border-bottom: 2px solid #bac7f1;
-}
-
-.portfolio-info {
-  padding: 15px;
-  text-align: center;
-}
-
-.portfolio-info h4 {
-  font-size: 18px;
-  font-weight: 600;
-  color: #ccd6f6;
-  margin-bottom: 10px;
-}
-
-.portfolio-links a {
-  color: #64ffda;
-  font-size: 24px;
-  transition: color 0.3s ease;
-}
-
-.portfolio-links a:hover {
-  color: #fff;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 991px) {
-  .portfolio-item {
-    width: calc(50% - 20px); /* 2 items in a row on medium screens */
-  }
-}
-
-@media (max-width: 767px) {
-  .portfolio-item {
-    width: 100%; /* 1 item in a row on small screens */
-  }
 }
 
 /*--------------------------------------------------------------
@@ -647,7 +613,7 @@ section .container {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .resume .resume-item {
@@ -726,7 +692,7 @@ section .container {
 }
 
 .services .icon-box .icon i {
-  color: #fff;
+  color: #ccd6f6;
   font-size: 28px;
 }
 
@@ -750,7 +716,7 @@ section .container {
 }
 
 .services .icon-box h4 a {
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .services .icon-box p {
@@ -761,11 +727,11 @@ section .container {
 
 .services .icon-box:hover {
   background: #042e5f;
-  border-color: #64ffda;
+  border-color: #1c7d32;
 }
 
 .services .icon-box:hover .icon {
-  background: #fff;
+  background: #ccd6f6;
 }
 
 .services .icon-box:hover .icon i {
@@ -781,8 +747,8 @@ section .container {
 }
 
 /*--------------------------------------------------------------
-/* # Portfolio */
---------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
@@ -793,39 +759,26 @@ section .container {
   list-style: none;
   text-align: center;
   border-radius: 50px;
-  padding: 5px 20px; /* Slightly increased padding for better visual balance */
-  background: rgba(255, 255, 255, 0.05); /* Subtle background for the filter container */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for modern effect */
+  padding: 2px 15px;
 }
 
 .portfolio #portfolio-flters li {
   cursor: pointer;
   display: inline-block;
-  padding: 10px 20px; /* Increased padding for a better touch target */
-  font-size: 15px; /* Slightly larger font for readability */
+  padding: 8px 16px 10px 16px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1;
   text-transform: uppercase;
-  color: #fff;
+  color: #ccd6f6;
   background: rgba(255, 255, 255, 0.1);
-  margin: 0 6px 10px;
+  margin: 0 3px 10px 3px;
   transition: all 0.3s ease-in-out;
-  border-radius: 20px; /* Rounded corners for a pill-shaped look */
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Light shadow for individual items */
+  border-radius: 4px;
 }
 
-.portfolio #portfolio-flters li:hover {
+.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
   background: #64ffda;
-  color: #000; /* Text turns black for contrast */
-  transform: translateY(-4px); /* Subtle lift on hover */
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
-}
-
-.portfolio #portfolio-flters li.filter-active {
-  background: #64ffda;
-  color: #000; /* Black text for active state */
-  border: 2px solid #fff; /* Adds a white border to highlight the active filter */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for active state */
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -838,18 +791,16 @@ section .container {
   overflow: hidden;
   z-index: 1;
   background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px; /* Added rounded corners to the portfolio items */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern design */
 }
 
 .portfolio .portfolio-wrap::before {
   content: "";
   background: rgba(0, 0, 0, 0.6);
   position: absolute;
-  left: 20px; /* Reduced spacing for a sleeker look */
-  right: 20px;
-  top: 20px;
-  bottom: 20px;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
   transition: all ease-in-out 0.3s;
   z-index: 2;
   opacity: 0;
@@ -879,8 +830,8 @@ section .container {
   position: absolute;
   top: 35px;
   left: 35px;
-  border-top: 3px solid #fff;
-  border-left: 3px solid #fff;
+  border-top: 3px solid #ccd6f6;
+  border-left: 3px solid #ccd6f6;
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
@@ -893,20 +844,20 @@ section .container {
   position: absolute;
   bottom: 35px;
   right: 35px;
-  border-bottom: 3px solid #fff;
-  border-right: 3px solid #fff;
+  border-bottom: 3px solid #ccd6f6;
+  border-right: 3px solid #ccd6f6;
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
 
 .portfolio .portfolio-wrap .portfolio-info h4 {
   font-size: 20px;
-  color: #fff;
+  color: #ccd6f6;
   font-weight: 600;
 }
 
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #ffffff;
+  color: #ccd6f6;
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
@@ -919,7 +870,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #fff;
+  color: #ccd6f6;
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -927,7 +878,7 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  color: #63eda3;
+  color: #64ffda;
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -935,21 +886,22 @@ section .container {
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 1; /* This ensures the dark overlay is visible */
+  opacity: 1;
 }
 
 .portfolio .portfolio-wrap:hover .portfolio-info {
-  opacity: 1; /* Ensure info content is displayed */
+  opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info::before,
-.portfolio .portfolio-wrap:hover .portfolio-info::after {
-  top: 15px; /* Adjust corner animation */
+.portfolio .portfolio-wrap:hover .portfolio-info::before {
+  top: 15px;
   left: 15px;
+}
+
+.portfolio .portfolio-wrap:hover .portfolio-info::after {
   bottom: 15px;
   right: 15px;
 }
-
 
 /*--------------------------------------------------------------
 # Contact
@@ -963,7 +915,7 @@ section .container {
 
 .contact .info-box i.bx {
   font-size: 24px;
-  color: #dee2e6;
+  color: #ccd6f6;
   border-radius: 50%;
   padding: 14px;
   float: left;
@@ -979,7 +931,7 @@ section .container {
 
 .contact .info-box p {
   padding: 0;
-  color: #fff;
+  color: #ccd6f6;
   line-height: 24px;
   font-size: 14px;
   margin: 0 0 0 68px;
@@ -993,7 +945,7 @@ section .container {
 .contact .info-box .social-links a {
   font-size: 18px;
   display: inline-block;
-  color: #fff;
+  color: #ccd6f6;
   line-height: 1;
   margin-right: 12px;
   transition: 0.3s;
@@ -1049,7 +1001,7 @@ section .container {
   height: 24px;
   margin: 0 10px -6px 0;
   border: 3px solid #64ffda;
-  border-top-color: #eee;
+  border-top-color: #ccd6f6;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
@@ -1061,7 +1013,7 @@ section .container {
   background: rgba(255, 255, 255, 0.08);
   border: 0;
   transition: 0.3s;
-  color: #fff;
+  color: #ccd6f6;
 }
 
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
@@ -1102,10 +1054,10 @@ section .container {
 }
 
 .contact .php-email-form button[type="submit"] {
-  background: #1c7d32;
+  background: #64ffda;
   border: 0;
   padding: 10px 30px;
-  color: #fff;
+  color: #ccd6f6;
   transition: 0.4s;
   border-radius: 4px;
 }
@@ -1140,7 +1092,7 @@ section .container {
   right: 15px;
   bottom: 15px;
   font-size: 13px;
-  color: #fff;
+  color: #ccd6f6;
   z-index: 1;
 }
 
@@ -1150,7 +1102,7 @@ section .container {
 }
 
 .credits a:hover {
-  color: #fff;
+  color: #ccd6f6;
 }
 
 @media (max-width: 992px) {
