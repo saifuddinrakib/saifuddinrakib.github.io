@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h1 a, #header h1 a:hover {
-  color: #dee2e6;
+  color: #1e1d1d;
   line-height: 1;
   display: inline-block;
 }
@@ -184,12 +184,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a {
-  display: block;
+  display: inline-block;
   position: relative;
-  color: #ccd6f6;
-  font-size: 19px;
+  color: #1e1d1d;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .nav-menu a:before {
@@ -198,7 +198,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #9e7f25;
+  background-color: #f0bf4c;
   visibility: hidden;
   width: 0;
   transition: all 0.3s ease-in-out 0s;
@@ -210,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #64ffda;
+  color: #f0bf4c;
   text-decoration: none;
 }
 
