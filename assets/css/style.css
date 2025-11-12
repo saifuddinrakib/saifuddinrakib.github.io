@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header h1 {
   font-size: 48px;
-  margin-top: 0px;
+  margin-top: 0;
   padding: 0;
   line-height: 1;
   font-weight: 700;
@@ -95,13 +95,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .social-links {
-  margin-top: 40px;
+  margin-top: 30px;
+    gap: 10px;
   display: flex;
 }
 
 #header .social-links a {
   font-size: 16px;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
@@ -112,11 +113,39 @@ h1, h2, h3, h4, h5, h6 {
   width: 40px;
   height: 40px;
 }
-
 #header .social-links a:hover {
-  background: #64ffda;
+  background: #f7a967;
 }
 
+/* BoxIcons sizing */
+#header .social-links a i {
+  font-size: 20px;
+}
+
+/* SVG icons sizing - fixed to integer values */
+#header .social-links a svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Contact section social links */
+.contact .info-box .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.contact .info-box .social-links a i {
+  font-size: 16px;
+}
+
+.contact .info-box .social-links a i {
+  font-size: 16px;
+}
 @media (max-width: 992px) {
   #header h1 {
     font-size: 36px;
@@ -166,13 +195,12 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a:before {
   content: "";
   position: absolute;
-  width: 0;
-  height: 2px;
+    height: 2px;
   bottom: -4px;
   left: 0;
   background-color: #9e7f25;
   visibility: hidden;
-  width: 0px;
+  width: 0;
   transition: all 0.3s ease-in-out 0s;
 }
 
@@ -323,7 +351,7 @@ section.section-show {
   top: 70px;
   bottom: auto;
   opacity: 1;
-  padding-bottom: 0px;
+  padding-bottom: 0;
 }
 
 section .container {
@@ -362,8 +390,7 @@ section .container {
 }
 
 .section-title p {
-  margin: 0;
-  margin: -15px 0 15px 0;
+    margin: -15px 0 15px 0;
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
@@ -577,8 +604,7 @@ section .container {
   background: rgba(255, 255, 255, 0.1);
   position: relative;
   border-radius: 6px;
-  position: relative;
-  z-index: 1;
+    z-index: 1;
 }
 
 .testimonials .owl-nav, .testimonials .owl-dots {
@@ -678,8 +704,7 @@ section .container {
 }
 
 .services .icon-box .icon {
-  margin: 0 auto;
-  width: 64px;
+    width: 64px;
   height: 64px;
   background: #64ffda;
   border-radius: 5px;
@@ -687,8 +712,8 @@ section .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  transform-style: preserve-3d;
+    margin: 0 auto 20px;
+    transform-style: preserve-3d;
 }
 
 .services .icon-box .icon i {
@@ -754,8 +779,7 @@ section .container {
 }
 
 .portfolio #portfolio-flters {
-  padding: 0;
-  margin: 0 auto 15px auto;
+    margin: 0 auto 15px auto;
   list-style: none;
   text-align: center;
   border-radius: 50px;
