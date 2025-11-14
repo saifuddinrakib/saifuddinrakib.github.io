@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery Test</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .test-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-info h3 {
+            color: #64ffda;
+            margin-bottom: 15px;
+        }
+        .test-info ul {
+            margin-left: 20px;
+        }
+        .test-info li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Photo Gallery Functionality Test</h1>
+
+        <div class="test-info">
+            <h3>How to Test the Gallery:</h3>
+            <ul>
+                <li><strong>Click Navigation Arrows:</strong> Use the left (‹) and right (›) buttons to navigate between images</li>
+                <li><strong>Click Dots:</strong> Click on the dots at the bottom to jump to specific images</li>
+                <li><strong>Keyboard Navigation:</strong> Use left/right arrow keys when focused on the gallery</li>
+                <li><strong>Touch/Swipe (Mobile):</strong> Swipe left or right on the image</li>
+                <li><strong>Hover Effects:</strong> Hover over buttons and dots to see visual feedback</li>
+                <li><strong>Auto-Play:</strong> Currently disabled - can be enabled in the configuration</li>
+            </ul>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="photo-gallery-section">
+            <h3>Achievement Photo Gallery</h3>
+            <div class="gallery-container">
+                <button class="gallery-nav gallery-prev" aria-label="Previous image">‹</button>
+                <img id="galleryImage" src="assets/img/achievements/NRF.jpg" class="img-fluid" alt="Achievement Photo Gallery">
+                <button class="gallery-nav gallery-next" aria-label="Next image">›</button>
+                <div class="gallery-dots">
+                    <span class="gallery-dot active" data-index="0"></span>
+                    <span class="gallery-dot" data-index="1"></span>
+                    <span class="gallery-dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-info">
+            <h3>Gallery Features Implemented:</h3>
+            <ul>
+                <li>✅ Image preloading for smooth transitions</li>
+                <li>✅ Fade transition effects</li>
+                <li>✅ Navigation button animations</li>
+                <li>✅ Dot indicator system</li>
+                <li>✅ Keyboard navigation support</li>
+                <li>✅ Touch/swipe support for mobile devices</li>
+                <li>✅ Responsive design for all screen sizes</li>
+                <li>✅ Hover effects and visual feedback</li>
+                <li>✅ Transition protection (prevents rapid clicking)</li>
+                <li>✅ Auto-play capability (configurable)</li>
+                <li>✅ Easy image configuration system</li>
+                <li>✅ Alt text and title attributes for accessibility</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
