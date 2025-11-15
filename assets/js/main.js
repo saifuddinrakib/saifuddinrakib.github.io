@@ -140,6 +140,38 @@
         filter: $(this).data('filter')
       });
     });
+
+    // Projects isotope and filter
+    var projectsIsotope = $('.projects-container').isotope({
+      itemSelector: '.project-item',
+      layoutMode: 'fitRows'
+    });
+
+    // Primary filter click handler
+    $('.projects-filter-primary li').on('click', function() {
+      $(".projects-filter-primary li").removeClass('filter-active');
+      $(this).addClass('filter-active');
+
+      // Clear secondary filter active state
+      $(".projects-filter-secondary li").removeClass('filter-active');
+
+      projectsIsotope.isotope({
+        filter: $(this).data('filter')
+      });
+    });
+
+    // Secondary filter click handler
+    $('.projects-filter-secondary li').on('click', function() {
+      $(".projects-filter-secondary li").removeClass('filter-active');
+      $(this).addClass('filter-active');
+
+      // Clear primary filter active state except "ALL"
+      $(".projects-filter-primary li").removeClass('filter-active');
+
+      projectsIsotope.isotope({
+        filter: $(this).data('filter')
+      });
+    });
   });
 
   // Initiate venobox (lightbox feature used in portofilo)
