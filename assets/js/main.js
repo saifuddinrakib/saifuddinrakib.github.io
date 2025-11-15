@@ -142,36 +142,48 @@
     });
 
     // Projects isotope and filter
+    console.log('Initializing projects isotope...');
     var projectsIsotope = $('.projects-container').isotope({
       itemSelector: '.project-item',
-      layoutMode: 'fitRows'
+      layoutMode: 'fitRows',
+      transitionDuration: '0.6s'
     });
+    console.log('Projects isotope initialized. Items found:', $('.project-item').length);
 
     // Primary filter click handler
     $('.projects-filter-primary li').on('click', function() {
+      console.log('Primary filter clicked:', $(this).text());
       $(".projects-filter-primary li").removeClass('filter-active');
       $(this).addClass('filter-active');
 
       // Clear secondary filter active state
       $(".projects-filter-secondary li").removeClass('filter-active');
 
+      var filterValue = $(this).data('filter');
+      console.log('Filter value:', filterValue);
       projectsIsotope.isotope({
-        filter: $(this).data('filter')
+        filter: filterValue
       });
     });
 
     // Secondary filter click handler
     $('.projects-filter-secondary li').on('click', function() {
+      console.log('Secondary filter clicked:', $(this).text());
       $(".projects-filter-secondary li").removeClass('filter-active');
       $(this).addClass('filter-active');
 
       // Clear primary filter active state except "ALL"
       $(".projects-filter-primary li").removeClass('filter-active');
 
+      var filterValue = $(this).data('filter');
+      console.log('Filter value:', filterValue);
       projectsIsotope.isotope({
-        filter: $(this).data('filter')
+        filter: filterValue
       });
     });
+
+    console.log('Primary filters found:', $('.projects-filter-primary li').length);
+    console.log('Secondary filters found:', $('.projects-filter-secondary li').length);
   });
 
   // Initiate venobox (lightbox feature used in portofilo)

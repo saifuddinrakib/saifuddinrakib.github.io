@@ -408,15 +408,23 @@
       <h2>PROJECTS</h2>
     </div>
 
-    <!-- Filter Tabs -->
+    <!-- Primary Filter Tabs -->
     <div class="row">
       <div class="col-lg-12 d-flex justify-content-center">
-        <ul class="projects-filter">
+        <ul class="projects-filter-primary">
           <li data-filter="*" class="filter-active">ALL</li>
+          <li data-filter=".filter-ml">Undergraduate</li>
+          <li data-filter=".filter-pd">Graduate</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Secondary Filter Tabs -->
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul class="projects-filter-secondary">
           <li data-filter=".filter-ro">Robotics</li>
           <li data-filter=".filter-md">Mechanical Design</li>
-          <li data-filter=".filter-s">Sustainability</li>
-          <li data-filter=".filter-ml">Machine Learning</li>
           <li data-filter=".filter-iot">Internet of Things</li>
         </ul>
       </div>
@@ -426,7 +434,7 @@
     <div class="row projects-container">
 
       <!-- Image Classification on Amazon Sagemaker -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-iot">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/Designer%20(3).jpeg" class="img-fluid" alt="Image Classification">
@@ -439,7 +447,7 @@
       </div>
 
       <!-- Landmark Tagging For Social Media -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-iot">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/Designer%20(4).jpeg" class="img-fluid" alt="Landmark Tagging">
@@ -452,7 +460,7 @@
       </div>
 
       <!-- Predict Bike Sharing Demand -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-iot">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/Designer%20(6).jpeg" class="img-fluid" alt="Bike Sharing">
@@ -465,7 +473,7 @@
       </div>
 
       <!-- MNIST Handwritten Digit Classifier -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-md">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/Designer%20(7).jpeg" class="img-fluid" alt="MNIST">
@@ -478,7 +486,7 @@
       </div>
 
       <!-- Resume Section Classifier -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-iot">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/resume.jpg" class="img-fluid" alt="Resume Classifier">
@@ -491,7 +499,7 @@
       </div>
 
       <!-- Video Description Generator -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-ro">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/vdg.jpg" class="img-fluid" alt="Video Description">
@@ -504,7 +512,7 @@
       </div>
 
       <!-- ML-DL Web-App -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-iot">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/ml.jpg" class="img-fluid" alt="ML-DL App">
@@ -517,7 +525,7 @@
       </div>
 
       <!-- Image Generator -->
-      <div class="col-lg-4 col-md-6 project-item filter-ml">
+      <div class="col-lg-4 col-md-6 project-item filter-ml filter-ro">
         <div class="project-card">
           <div class="project-image">
             <img src="assets/img/project/gan.jpg" class="img-fluid" alt="Image Generator">
