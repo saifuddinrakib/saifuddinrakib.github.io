@@ -4,10 +4,25 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+/**
+ * @file Main interactions and UI logic.
+ * @requires jQuery
+ */
+/* global jQuery, $ */
+
+/**
+ * @param {JQueryStatic} $
+ */
 !(function($) {
   "use strict";
 
-  // Nav Menu
+  // Cache frequently used selectors
+  /** @type {JQuery} */
+  let $body = $('body');
+  /** @type {JQuery} */
+  let $header = $('#header');
+
+    // Nav Menu
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
     if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
       var hash = this.hash;
@@ -21,13 +36,13 @@
         }
 
         if (hash === '#header') {
-          $('#header').removeClass('header-top');
+          $header.removeClass('header-top');
           $("section").removeClass('section-show');
           return;
         }
 
-        if (!$('#header').hasClass('header-top')) {
-          $('#header').addClass('header-top');
+        if (!$header.hasClass('header-top')) {
+          $header.addClass('header-top');
           setTimeout(function() {
             $("section").removeClass('section-show');
             $(hash).addClass('section-show');
@@ -37,8 +52,8 @@
           $(hash).addClass('section-show');
         }
 
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
+        if ($body.hasClass('mobile-nav-active')) {
+          $body.removeClass('mobile-nav-active');
           $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
           $('.mobile-nav-overly').fadeOut();
         }
@@ -53,7 +68,7 @@
   if (window.location.hash) {
     var initial_nav = window.location.hash;
     if ($(initial_nav).length) {
-      $('#header').addClass('header-top');
+      $header.addClass('header-top');
       $('.nav-menu .active, .mobile-nav .active').removeClass('active');
       $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
       setTimeout(function() {
@@ -64,17 +79,20 @@
   }
 
   // Mobile Navigation
-  if ($('.nav-menu').length) {
-    var $mobile_nav = $('.nav-menu').clone().prop({
+  /** @type {JQuery} */
+  var $navMenu = $('.nav-menu');
+  if ($navMenu.length) {
+    /** @type {JQuery} */
+    var $mobile_nav = $navMenu.clone().prop({
       class: 'mobile-nav d-lg-none'
     });
-    $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
-    $('body').append('<div class="mobile-nav-overly"></div>');
+    $body.append($mobile_nav);
+    $body.prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
+    $body.append('<div class="mobile-nav-overly"></div>');
 
     $(document).on('click', '.mobile-nav-toggle', function(e) {
       e.preventDefault();
-      $('body').toggleClass('mobile-nav-active');
+      $body.toggleClass('mobile-nav-active');
       $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
       $('.mobile-nav-overly').toggle();
     });
@@ -83,8 +101,8 @@
     $(document).click(function(e) {
       var container = $(".mobile-nav, .mobile-nav-toggle");
       if (!container.is(e.target) && container.has(e.target).length === 0) {
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
+        if ($body.hasClass('mobile-nav-active')) {
+          $body.removeClass('mobile-nav-active');
           $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
           $('.mobile-nav-overly').fadeOut();
         }
@@ -93,15 +111,15 @@
 
     // Close mobile nav when clicking on overlay
     $(document).on('click', '.mobile-nav-overly', function() {
-      $('body').removeClass('mobile-nav-active');
+      $body.removeClass('mobile-nav-active');
       $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
       $('.mobile-nav-overly').fadeOut();
     });
 
     // Close mobile nav when clicking on menu item
     $(document).on('click', '.mobile-nav a', function() {
-      if ($('body').hasClass('mobile-nav-active')) {
-        $('body').removeClass('mobile-nav-active');
+      if ($body.hasClass('mobile-nav-active')) {
+        $body.removeClass('mobile-nav-active');
         $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
         $('.mobile-nav-overly').fadeOut();
       }
@@ -111,21 +129,21 @@
     var touchStartY = 0;
     var touchEndY = 0;
 
-    $('.mobile-nav').on('touchstart', function(e) {
+    $mobile_nav.on('touchstart', function(e) {
       touchStartY = e.originalEvent.touches[0].clientY;
     });
 
-    $('.mobile-nav').on('touchend', function(e) {
+    $mobile_nav.on('touchend', function(e) {
       touchEndY = e.originalEvent.changedTouches[0].clientY;
       // Optional: Close nav on swipe up gesture
       if (touchStartY - touchEndY > 100) {
-        $('body').removeClass('mobile-nav-active');
+        $body.removeClass('mobile-nav-active');
         $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
         $('.mobile-nav-overly').fadeOut();
       }
     });
 
-  } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
+  } else if ($('.mobile-nav, .mobile-nav-toggle').length) {
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
 
@@ -180,21 +198,26 @@
 
     // Projects isotope and filter
     console.log('Initializing projects isotope...');
-    var projectsIsotope = $('.projects-container').isotope({
+    var $projectsContainer = $('.projects-container');
+    var projectsIsotope = $projectsContainer.isotope({
       itemSelector: '.project-item',
       layoutMode: 'fitRows',
       transitionDuration: '0.6s'
     });
     console.log('Projects isotope initialized. Items found:', $('.project-item').length);
 
+    // Cache filter lists
+    var $primaryFilters = $('.projects-filter-primary li');
+    var $secondaryFilters = $('.projects-filter-secondary li');
+
     // Primary filter click handler
-    $('.projects-filter-primary li').on('click', function() {
+    $primaryFilters.on('click', function() {
       console.log('Primary filter clicked:', $(this).text());
-      $(".projects-filter-primary li").removeClass('filter-active');
+      $primaryFilters.removeClass('filter-active');
       $(this).addClass('filter-active');
 
       // Clear secondary filter active state
-      $(".projects-filter-secondary li").removeClass('filter-active');
+      $secondaryFilters.removeClass('filter-active');
 
       var filterValue = $(this).data('filter');
       console.log('Filter value:', filterValue);
@@ -204,13 +227,13 @@
     });
 
     // Secondary filter click handler
-    $('.projects-filter-secondary li').on('click', function() {
+    $secondaryFilters.on('click', function() {
       console.log('Secondary filter clicked:', $(this).text());
-      $(".projects-filter-secondary li").removeClass('filter-active');
+      $secondaryFilters.removeClass('filter-active');
       $(this).addClass('filter-active');
 
       // Clear primary filter active state except "ALL"
-      $(".projects-filter-primary li").removeClass('filter-active');
+      $primaryFilters.removeClass('filter-active');
 
       var filterValue = $(this).data('filter');
       console.log('Filter value:', filterValue);
@@ -219,8 +242,8 @@
       });
     });
 
-    console.log('Primary filters found:', $('.projects-filter-primary li').length);
-    console.log('Secondary filters found:', $('.projects-filter-secondary li').length);
+    console.log('Primary filters found:', $primaryFilters.length);
+    console.log('Secondary filters found:', $secondaryFilters.length);
   });
 
   // Initiate venobox (lightbox feature used in portofilo)
@@ -390,6 +413,42 @@
     // Initialize the gallery
     initGallery();
     startAutoPlay();
+  });
+
+  // Research Icons - Ensure they are clickable
+  $(document).ready(function() {
+    // Force click handlers on research icons
+    $('.research-icon').on('click', function(e) {
+      e.stopPropagation();
+      var href = $(this).attr('href');
+      if (href && href !== '#') {
+        window.open(href, '_blank');
+      }
+      return false;
+    });
+
+    // Add visual feedback on hover
+    $('.research-icon').on('mouseenter', function() {
+      $(this).css({
+        'transform': 'scale(1.15)',
+        'box-shadow': '0 6px 20px rgba(0, 0, 0, 0.15)'
+      });
+    }).on('mouseleave', function() {
+      $(this).css({
+        'transform': 'scale(1)',
+        'box-shadow': 'none'
+      });
+    });
+
+    // Prevent image from blocking clicks
+    $('.research-icon img').on('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).parent().trigger('click');
+    });
+
+    // Debug: Log when icons are ready
+    console.log('Research icons initialized:', $('.research-icon').length);
   });
 
 })(jQuery);
