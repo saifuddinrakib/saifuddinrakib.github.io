@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header h2 span {
-  color: #679cda;
+  color: #f5f5f5;
   border-bottom: 2px solid #64ffda;
   padding-bottom: 6px;
 }
@@ -316,7 +316,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Show mobile nav toggle only on mobile devices */
-@media (max-width: 991.98px) {
+@media (max-width: 992px) {
   .mobile-nav-toggle {
     display: flex !important;
   }
@@ -711,7 +711,7 @@ section .container {
   margin-bottom: 8px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .education-box h4 {
@@ -928,8 +928,9 @@ section#research.research-section.section-show {
   margin-bottom: 24px;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .research-header:hover {
@@ -942,6 +943,8 @@ section#research.research-section.section-show {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 /* Responsive, accessible research social links */
@@ -950,65 +953,60 @@ section#research.research-section.section-show {
   gap: 12px;
   align-items: center;
   flex-wrap: wrap; /* prevent overflow on small screens */
+  position: relative;
+  z-index: 1000;
 }
 
 .research-icon {
   /* tweakable size/radius via CSS vars */
-  --size: 42px;
-  --radius: 12px;
+  --size: 46px;
 
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: var(--size);
   height: var(--size);
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, #ffffff, #ffffff);
-  color: #fff;
+  background: transparent;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgb(255, 255, 255);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 10000 !important;  /* ensure above everything */
+  pointer-events: auto !important;  /* allow clicks */
+  cursor: pointer !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
-.research-icon:hover,
-.research-icon:focus-visible {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgb(255, 255, 255);
-  background: linear-gradient(135deg, #ffffff, #ffffff);
-  outline: 3px solid rgb(255, 255, 255); /* keyboard focus */
-  outline-offset: 2px;
+/* Hover effect for all research icons */
+.research-icon:hover {
+  transform: scale(1.2) translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1);
 }
 
 .research-icon:active {
-  transform: translateY(-1px) scale(0.98);
-}
-
-.research-icon svg {
-  display: block;
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
+  transform: scale(1.1) translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .research-icon img {
+  pointer-events: none !important; /* let the anchor capture the click */
+  transition: transform .2s ease;
   display: block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .research-icon {
-    transition: none;
-  }
-  .research-icon:hover,
-  .research-icon:focus-visible,
-  .research-icon:active {
-    transform: none;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 }
 
 /* Small screens: slightly smaller, tighter gap */
@@ -1018,15 +1016,10 @@ section#research.research-section.section-show {
   }
   .research-icon {
     --size: 40px;
-    --radius: 10px;
-  }
-  .research-icon svg {
-    width: 20px;
-    height: 20px;
   }
   .research-icon img {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -1040,13 +1033,14 @@ section#research.research-section.section-show {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   letter-spacing: -0.8px;
+  pointer-events: none;
 }
 
 .research-tags {
   font-size: 16px;
   color: #6c757d;
   line-height: 1.6;
-  letter-spacing: 0.2px;
+  letter-spacing: 0;
   font-weight: 500;
   opacity: 0.9;
 }
@@ -1257,13 +1251,9 @@ section#research.research-section.section-show {
     width: 36px;
     height: 36px;
   }
-  .research-icon svg {
-    width: 25px;
-    height: 25px;
-  }
   .research-icon img {
-    width: 25px;
-    height: 25px;
+    width: 36px;
+    height: 36px;
   }
   .section-subtitle {
     font-size: 20px;
@@ -1810,83 +1800,246 @@ section#research.research-section.section-show {
 
 
 /*--------------------------------------------------------------
-# Services
+# Experience Section - Clean White Cards Like Image_5
 --------------------------------------------------------------*/
+#experience .section-title h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
 .services .icon-box {
-  text-align: center;
-  background: #09203a;
-  padding: 40px 40px;
-  transition: all ease-in-out 0.3s;
-  margin: 10px
-}
-
-.services .icon-box .icon {
-    width: 64px;
-  height: 64px;
-  background: #64ffda;
-  border-radius: 5px;
-  transition: all .3s ease-out 0s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-    margin: 0 auto 20px;
-    transform-style: preserve-3d;
-}
-
-.services .icon-box .icon i {
-  color: #ccd6f6;
-  font-size: 28px;
-}
-
-.services .icon-box .icon::before {
-  position: absolute;
-  content: '';
-  left: -8px;
-  top: -8px;
-  height: 100%;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 5px;
-  transition: all .3s ease-out 0s;
-  transform: translateZ(-1px);
-}
-
-.services .icon-box h4 {
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 24px;
-}
-
-.services .icon-box h4 a {
-  color: #ccd6f6;
-}
-
-.services .icon-box p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
+  background: #ffffff;
+  padding: 35px;
+  transition: all 0.3s ease;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: left;
 }
 
 .services .icon-box:hover {
-  background: #042e5f;
-  border-color: #1c7d32;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
-.services .icon-box:hover .icon {
-  background: #ccd6f6;
+/* Company Info Container - Logo + Content Side by Side */
+.services .company-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-.services .icon-box:hover .icon i {
-  color: #64ffda;
+/* Company Logo - Round Shape */
+.services .company-logo {
+  width: 70px !important;
+  height: 70px !important;
+  min-width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #f8f9fa;
+  padding: 0;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
-.services .icon-box:hover .icon::before {
-  background: #64ffda;
+.services .company-info > a {
+  text-decoration: none;
+  display: block;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
-.services .icon-box:hover h4 a, .services .icon-box:hover p {
-  color: #64ffda;
+.services .company-info > a:hover .company-logo {
+  transform: scale(1.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
+
+/* Content Area */
+.services .company-info > div {
+  flex: 1;
+  width: 100%;
+}
+
+/* Header Row: Company Name + Meta (date + location stacked on right) */
+.experience-entry .experience-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 5px; /* reduced to move role title up */
+  gap: 20px;
+}
+
+.experience-entry .company-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  color: #000000;
+  flex: 1;
+}
+
+.experience-entry .company-name a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.experience-entry .company-name a:hover {
+  color: #1e5a78;
+}
+
+/* Date + Location Meta Block - Right Aligned */
+.experience-entry .experience-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 6px; /* increased gap for better spacing */
+}
+
+.experience-entry .date-range {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a202c;
+  white-space: nowrap;
+}
+
+.experience-entry .location {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000000;
+  background: #f5f5f5;
+  padding: 2px 8px;
+  border-radius: 10px;
+  line-height: 1.3;
+}
+
+/* Role Title - positioned to align horizontally with location */
+.experience-entry .role-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e7a9e;
+  margin: -20px 0 15px 0; /* negative margin to pull up and align with location */
+  font-style: normal;
+}
+
+/* Bullet Points - start from logo align position */
+.experience-entry .experience-points {
+  margin: 0;
+  padding-left: 0;
+  list-style-position: outside;
+}
+
+.experience-entry .experience-points li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+  color: #2c3e50;
+  font-size: 15px;
+  padding-left: 18px; /* space for bullet */
+}
+
+/* Links in Bullets - Teal */
+.services .experience-points a {
+  color: #1e7a9e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.services .experience-points a:hover {
+  text-decoration: underline;
+}
+
+/* Patent Links - Keep Teal, Just Bold */
+.services .experience-points a[href*="patent" i] {
+  color: #1e7a9e;
+  font-weight: 600;
+}
+
+/* Remove old icon/hover effects */
+.services .icon-box .icon {
+  display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .services .company-logo {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px;
+  }
+
+  .experience-entry .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .experience-entry .experience-meta {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .experience-entry .date-range {
+    font-size: 14px;
+  }
+
+  .experience-entry .location {
+    font-size: 12px;
+  }
+
+  .experience-entry .company-name {
+    font-size: 20px;
+  }
+
+  .experience-entry .role-title {
+    font-size: 16px;
+  }
+
+  .experience-entry .date-range {
+    font-size: 14px;
+  }
+
+  .services .icon-box {
+    padding: 25px;
+  }
+}
+
+/* BJIT only: fit nicely inside the round shape (no impact on others) */
+.services .company-logo[src$="bjit_logo.png"],
+.services .company-info img[alt="BJIT Logo"] {
+  object-fit: contain;   /* avoid cropping in the circle */
+  padding: 6px;          /* shrink a bit inside 70x70 circle */
+  background: #ffffff;
+  /* if needed, keep it round explicitly */
+  border-radius: 50%;
+}
+
+
+/* Keep BJIT hover effect */
+.services .company-info > a:hover .company-logo {
+  transform: scale(1.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Desktop should never show mobile nav */
+@media (min-width: 992px) {
+  .mobile-nav-toggle { display: none !important; }
+  .mobile-nav,
+  .mobile-nav-overly {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+
+
+
+
 
 
 
@@ -1952,7 +2105,7 @@ section#research.research-section.section-show {
   border-radius: 30px;
   background: #ffffff !important;
   border: 2px solid #cbd5e0;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
@@ -1998,7 +2151,7 @@ section#research.research-section.section-show {
   background: transparent !important;
   position: relative;
   text-transform: capitalize;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .projects-filter-secondary li:hover {
@@ -2112,7 +2265,7 @@ section#research.research-section.section-show {
 
 .project-card:hover .project-overlay h4 {
   font-size: 20px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0;
   transform: translateY(-2px);
 }
 
@@ -2130,7 +2283,7 @@ section#research.research-section.section-show {
   border-radius: 25px;
   background: rgba(99, 179, 237, 0.1);
   backdrop-filter: blur(5px);
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .project-card:hover .project-overlay .view-details {
