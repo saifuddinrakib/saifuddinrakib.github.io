@@ -73,11 +73,13 @@
     $('body').append('<div class="mobile-nav-overly"></div>');
 
     $(document).on('click', '.mobile-nav-toggle', function(e) {
+      e.preventDefault();
       $('body').toggleClass('mobile-nav-active');
       $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
       $('.mobile-nav-overly').toggle();
     });
 
+    // Close mobile nav when clicking outside
     $(document).click(function(e) {
       var container = $(".mobile-nav, .mobile-nav-toggle");
       if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -88,6 +90,41 @@
         }
       }
     });
+
+    // Close mobile nav when clicking on overlay
+    $(document).on('click', '.mobile-nav-overly', function() {
+      $('body').removeClass('mobile-nav-active');
+      $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
+      $('.mobile-nav-overly').fadeOut();
+    });
+
+    // Close mobile nav when clicking on menu item
+    $(document).on('click', '.mobile-nav a', function() {
+      if ($('body').hasClass('mobile-nav-active')) {
+        $('body').removeClass('mobile-nav-active');
+        $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
+        $('.mobile-nav-overly').fadeOut();
+      }
+    });
+
+    // Add touch support for mobile devices
+    var touchStartY = 0;
+    var touchEndY = 0;
+
+    $('.mobile-nav').on('touchstart', function(e) {
+      touchStartY = e.originalEvent.touches[0].clientY;
+    });
+
+    $('.mobile-nav').on('touchend', function(e) {
+      touchEndY = e.originalEvent.changedTouches[0].clientY;
+      // Optional: Close nav on swipe up gesture
+      if (touchStartY - touchEndY > 100) {
+        $('body').removeClass('mobile-nav-active');
+        $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
+        $('.mobile-nav-overly').fadeOut();
+      }
+    });
+
   } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
