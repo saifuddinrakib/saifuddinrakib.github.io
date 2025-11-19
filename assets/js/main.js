@@ -13,7 +13,7 @@
 /**
  * @param {JQueryStatic} $
  */
-!(function($) {
+!(function ($) {
   "use strict";
 
   // Cache frequently used selectors
@@ -22,8 +22,8 @@
   /** @type {JQuery} */
   let $header = $('#header');
 
-    // Nav Menu
-  $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
+  // Nav Menu
+  $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
     if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
       var hash = this.hash;
       var target = $(hash);
@@ -43,7 +43,7 @@
 
         if (!$header.hasClass('header-top')) {
           $header.addClass('header-top');
-          setTimeout(function() {
+          setTimeout(function () {
             $("section").removeClass('section-show');
             $(hash).addClass('section-show');
           }, 350);
@@ -71,7 +71,7 @@
       $header.addClass('header-top');
       $('.nav-menu .active, .mobile-nav .active').removeClass('active');
       $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
-      setTimeout(function() {
+      setTimeout(function () {
         $("section").removeClass('section-show');
         $(initial_nav).addClass('section-show');
       }, 350);
@@ -90,7 +90,7 @@
     $body.prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
     $body.append('<div class="mobile-nav-overly"></div>');
 
-    $(document).on('click', '.mobile-nav-toggle', function(e) {
+    $(document).on('click', '.mobile-nav-toggle', function (e) {
       e.preventDefault();
       $body.toggleClass('mobile-nav-active');
       $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
@@ -98,7 +98,7 @@
     });
 
     // Close mobile nav when clicking outside
-    $(document).click(function(e) {
+    $(document).click(function (e) {
       var container = $(".mobile-nav, .mobile-nav-toggle");
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         if ($body.hasClass('mobile-nav-active')) {
@@ -110,14 +110,14 @@
     });
 
     // Close mobile nav when clicking on overlay
-    $(document).on('click', '.mobile-nav-overly', function() {
+    $(document).on('click', '.mobile-nav-overly', function () {
       $body.removeClass('mobile-nav-active');
       $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
       $('.mobile-nav-overly').fadeOut();
     });
 
     // Close mobile nav when clicking on menu item
-    $(document).on('click', '.mobile-nav a', function() {
+    $(document).on('click', '.mobile-nav a', function () {
       if ($body.hasClass('mobile-nav-active')) {
         $body.removeClass('mobile-nav-active');
         $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
@@ -129,11 +129,11 @@
     var touchStartY = 0;
     var touchEndY = 0;
 
-    $mobile_nav.on('touchstart', function(e) {
+    $mobile_nav.on('touchstart', function (e) {
       touchStartY = e.originalEvent.touches[0].clientY;
     });
 
-    $mobile_nav.on('touchend', function(e) {
+    $mobile_nav.on('touchend', function (e) {
       touchEndY = e.originalEvent.changedTouches[0].clientY;
       // Optional: Close nav on swipe up gesture
       if (touchStartY - touchEndY > 100) {
@@ -154,8 +154,8 @@
   });
 
   // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
+  $('.skills-content').waypoint(function () {
+    $('.progress .progress-bar').each(function () {
       $(this).css("width", $(this).attr("aria-valuenow") + '%');
     });
   }, {
@@ -181,13 +181,13 @@
   });
 
   // Porfolio isotope and filter
-  $(window).on('load', function() {
+  $(window).on('load', function () {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',
       layoutMode: 'fitRows'
     });
 
-    $('#portfolio-flters li').on('click', function() {
+    $('#portfolio-flters li').on('click', function () {
       $("#portfolio-flters li").removeClass('filter-active');
       $(this).addClass('filter-active');
 
@@ -211,7 +211,7 @@
     var $secondaryFilters = $('.projects-filter-secondary li');
 
     // Primary filter click handler
-    $primaryFilters.on('click', function() {
+    $primaryFilters.on('click', function () {
       console.log('Primary filter clicked:', $(this).text());
       $primaryFilters.removeClass('filter-active');
       $(this).addClass('filter-active');
@@ -227,7 +227,7 @@
     });
 
     // Secondary filter click handler
-    $secondaryFilters.on('click', function() {
+    $secondaryFilters.on('click', function () {
       console.log('Secondary filter clicked:', $(this).text());
       $secondaryFilters.removeClass('filter-active');
       $(this).addClass('filter-active');
@@ -247,12 +247,12 @@
   });
 
   // Initiate venobox (lightbox feature used in portofilo)
-  $(document).ready(function() {
+  $(document).ready(function () {
     $('.venobox').venobox();
   });
 
   // Photo Gallery Navigation
-  $(document).ready(function() {
+  $(document).ready(function () {
     var $galleryImage = $('#galleryImage');
     if ($galleryImage.length === 0) {
       return;
@@ -296,12 +296,12 @@
 
       var currentImage = galleryConfig.images[currentIndex];
 
-      $galleryImage.fadeOut(galleryConfig.fadeSpeed, function() {
+      $galleryImage.fadeOut(galleryConfig.fadeSpeed, function () {
         $(this)
           .attr('src', currentImage.src)
           .attr('alt', currentImage.alt)
           .attr('title', currentImage.title)
-          .fadeIn(galleryConfig.fadeSpeed, function() {
+          .fadeIn(galleryConfig.fadeSpeed, function () {
             isTransitioning = false;
           });
       });
@@ -311,7 +311,7 @@
     }
 
     function preloadImages() {
-      galleryConfig.images.forEach(function(imageObj) {
+      galleryConfig.images.forEach(function (imageObj) {
         var img = new Image();
         img.src = imageObj.src;
       });
@@ -331,18 +331,18 @@
     }
 
     // Navigation button events
-    $prevBtn.on('click', function(e) {
+    $prevBtn.on('click', function (e) {
       e.preventDefault();
       updateGallery(currentIndex - 1);
     });
 
-    $nextBtn.on('click', function(e) {
+    $nextBtn.on('click', function (e) {
       e.preventDefault();
       updateGallery(currentIndex + 1);
     });
 
     // Dot navigation
-    $dots.on('click', function(e) {
+    $dots.on('click', function (e) {
       e.preventDefault();
       var targetIndex = parseInt($(this).data('index'));
       if (targetIndex !== currentIndex) {
@@ -351,9 +351,9 @@
     });
 
     // Keyboard navigation
-    $(document).on('keydown', function(e) {
+    $(document).on('keydown', function (e) {
       if ($galleryImage.is(':visible')) {
-        switch(e.keyCode) {
+        switch (e.keyCode) {
           case 37: // Left arrow
             e.preventDefault();
             updateGallery(currentIndex - 1);
@@ -373,11 +373,11 @@
     var touchStartX = 0;
     var touchEndX = 0;
 
-    $galleryImage.on('touchstart', function(e) {
+    $galleryImage.on('touchstart', function (e) {
       touchStartX = e.originalEvent.touches[0].clientX;
     });
 
-    $galleryImage.on('touchend', function(e) {
+    $galleryImage.on('touchend', function (e) {
       touchEndX = e.originalEvent.changedTouches[0].clientX;
       var diff = touchStartX - touchEndX;
 
@@ -395,7 +395,7 @@
 
     function startAutoPlay() {
       if (galleryConfig.autoPlay) {
-        autoPlayInterval = setInterval(function() {
+        autoPlayInterval = setInterval(function () {
           updateGallery(currentIndex + 1);
         }, galleryConfig.autoPlayDelay);
       }
@@ -415,38 +415,7 @@
     startAutoPlay();
   });
 
-  // Research Icons - Ensure they are clickable
-  $(document).ready(function() {
-    // Force click handlers on research icons
-    $('.research-icon').on('click', function(e) {
-      e.stopPropagation();
-      var href = $(this).attr('href');
-      if (href && href !== '#') {
-        window.open(href, '_blank');
-      }
-      return false;
-    });
-
-    // Add visual feedback on hover
-    $('.research-icon').on('mouseenter', function() {
-      $(this).css({
-        'transform': 'scale(1.15)',
-        'box-shadow': '0 6px 20px rgba(0, 0, 0, 0.15)'
-      });
-    }).on('mouseleave', function() {
-      $(this).css({
-        'transform': 'scale(1)',
-        'box-shadow': 'none'
-      });
-    });
-
-    // Prevent image from blocking clicks
-    $('.research-icon img').on('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      $(this).parent().trigger('click');
-    });
-
+  $(document).ready(function () {
     // Debug: Log when icons are ready
     console.log('Research icons initialized:', $('.research-icon').length);
   });
