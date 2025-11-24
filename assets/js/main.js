@@ -415,7 +415,38 @@
     startAutoPlay();
   });
 
+  // Research Icons - Ensure they are clickable
   $(document).ready(function () {
+    // Force click handlers on research icons
+    $('.research-icon').on('click', function (e) {
+      e.stopPropagation();
+      var href = $(this).attr('href');
+      if (href && href !== '#') {
+        window.open(href, '_blank');
+      }
+      return false;
+    });
+
+    // Add visual feedback on hover
+    $('.research-icon').on('mouseenter', function () {
+      $(this).css({
+        'transform': 'scale(1.15)',
+        'box-shadow': '0 6px 20px rgba(0, 0, 0, 0.15)'
+      });
+    }).on('mouseleave', function () {
+      $(this).css({
+        'transform': 'scale(1)',
+        'box-shadow': 'none'
+      });
+    });
+
+    // Prevent image from blocking clicks
+    $('.research-icon img').on('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).parent().trigger('click');
+    });
+
     // Debug: Log when icons are ready
     console.log('Research icons initialized:', $('.research-icon').length);
   });

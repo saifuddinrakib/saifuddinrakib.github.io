@@ -10,7 +10,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #f5f5f5;
+  color: #444444;
   position: relative;
   background: transparent;
 }
@@ -18,7 +18,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #f5f5f5;
+  background: #f9fafb;
   background-size: cover;
   left: 0;
   right: 0;
@@ -33,11 +33,14 @@ body::before {
 }
 
 a {
-  color: #2a9d8f;
+  color: #0F766E;
+  /* CHANGED: Your Brand Teal */
+  transition: all 0.3s ease;
 }
 
+
 a:hover {
-  color: #02c39a;
+  color: #111827;
   text-decoration: none;
 }
 
@@ -92,21 +95,22 @@ h6 {
 
 #header h1 a,
 #header h1 a:hover {
-  color: #1e1d1d;
+  color: #111827;
   line-height: 1;
   display: inline-block;
+  text-decoration: none;
 }
 
 #header h2 {
   font-size: 22px;
   margin-top: 8px;
   margin-bottom: 0;
-  color: #64ffda;
+  color: #0F766E;
 }
 
 #header h2 span {
-  color: #f5f5f5;
-  border-bottom: 2px solid #64ffda;
+  color: #111827;
+  border-bottom: 2px solid #0F766E;
   padding-bottom: 6px;
 }
 
@@ -127,7 +131,7 @@ h6 {
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(248, 247, 244, 0.3);
   transition: all 0.3s ease;
   image-rendering: crisp-edges;
-  outline: 2px solid rgba(248, 247, 244, 0.4);
+  outline: 1px solid rgba(245, 245, 245, 0.1);
   outline-offset: 2px;
 }
 
@@ -176,8 +180,8 @@ h6 {
 }
 
 #header .social-links a:hover {
-  background: #f7a967;
-  color: #000000 !important;
+  background: #0F766E;
+  color: #ffffff !important;
 }
 
 /* BoxIcons sizing */
@@ -263,7 +267,7 @@ h6 {
 .nav-menu a {
   display: inline-block;
   position: relative;
-  color: #000;
+  color: #4B5563;
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -271,35 +275,37 @@ h6 {
   border-radius: 25px;
   transition: all 0.3s ease;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 12px rgba(245, 245, 245, 0.1);
-  overflow: hidden;
+  border: 1px solid #E5E7EB;
+  background: transparent;
+  box-shadow: none;
 }
 
+/* Remove the shiny slider effect - it looks dated */
 .nav-menu a:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  display: none;
 }
 
-.nav-menu a:hover:before {
-  left: 100%;
-}
 
-.nav-menu a:hover,
-.nav-menu .active>a {
-  color: #000;
-  background: rgba(255, 255, 255, 0.25);
+/* 2. Hover State (Light Teal Background + Dark Teal Text) */
+.nav-menu a:hover {
+  color: #0F766E;
+  /* CHANGED: Your brand color */
+  background: #F0FDFA;
+  /* CHANGED: Very light teal/white mix */
+  border-color: #0F766E;
+  /* CHANGED: Border turns teal */
   transform: translateY(-2px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 6px 12px rgb(229, 233, 246);
-  text-decoration: none;
+}
+
+/* 3. Active State (Solid Deep Teal Background + White Text) */
+.nav-menu .active>a {
+  color: #ffffff;
+  /* CHANGED: White text */
+  background: #0F766E;
+  /* CHANGED: Solid Deep Teal */
+  border-color: #0F766E;
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
+  /* CHANGED: Matching shadow */
 }
 
 
@@ -492,20 +498,21 @@ h6 {
   font-weight: 600;
 }
 
+/* Name Color on Scroll */
 #header.header-top h1 a {
-  color: #1a202c;
-  background: linear-gradient(135deg, #f5f5f5 0%, #f0bf4c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
+  color: #111827;
+  /* CHANGED: Solid Dark color */
+  background: none;
+  /* CHANGED: Removed gradient */
+  -webkit-text-fill-color: initial;
 }
 
+
 #header.header-top h1 a:hover {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #0F766E;
+  /* CHANGED: Turns Teal on hover */
+  background: none;
+  -webkit-text-fill-color: initial;
 }
 
 #header.header-top .container {
@@ -528,31 +535,39 @@ h6 {
   gap: 6px;
 }
 
+/* Navigation Links on Scroll */
 #header.header-top .nav-menu a {
   padding: 10px 18px;
   font-size: 14px;
   white-space: nowrap;
-  color: #4a5568;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #4B5563;
+  /* CHANGED: Gray */
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
   border-radius: 30px;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
+/* Navigation Hover on Scroll */
 #header.header-top .nav-menu a:hover {
-  background: linear-gradient(135deg, #bac7f1 0%, #f5f5f5 100%);
-  color: #ffffff;
+  background: #F0FDFA;
+  /* CHANGED: Light Teal */
+  color: #0F766E;
+  /* CHANGED: Teal Text */
+  border-color: #0F766E;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
-  border-color: transparent;
+  box-shadow: none;
 }
 
+/* Navigation ACTIVE on Scroll */
 #header.header-top .nav-menu .active a {
-  background: linear-gradient(135deg, #bac7f1 0%, #f0bf4c 100%);
+  background: #0F766E;
+  /* CHANGED: Solid Deep Teal */
   color: #ffffff;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-  border-color: transparent;
+  /* CHANGED: White Text */
+  box-shadow: 0 4px 15px rgba(15, 118, 110, 0.3);
+  border-color: #0F766E;
 }
 
 @media (max-width: 768px) {
@@ -919,6 +934,8 @@ section .container {
   transition: .9s;
   background-color: #64ffda;
 }
+
+
 
 /* Research Section - Enhanced Modern Styling */
 /* Research Section - Enhanced Modern Styling */
