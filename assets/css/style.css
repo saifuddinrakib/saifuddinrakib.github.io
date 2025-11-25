@@ -2251,10 +2251,12 @@ section#research.research-section.section-show {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 
-  /* Ensure secondary filters are also accessible */
+  /* FIX: Ensure secondary filters are fully accessible and on top */
   position: relative;
-  z-index: 40;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 .projects-filter-secondary li {
@@ -2263,12 +2265,16 @@ section#research.research-section.section-show {
   padding: 8px 20px;
   font-size: 15px !important;
   font-weight: 600 !important;
-  margin: 0 5px;
+  margin: 0;
   transition: all 0.3s ease;
   position: relative;
   text-transform: capitalize;
   color: var(--text-light) !important;
   background: transparent !important;
+  
+  /* FIX: Ensure each button is fully clickable */
+  pointer-events: auto;
+  z-index: 101;
 }
 
 .projects-filter-secondary li:hover {
