@@ -2210,7 +2210,7 @@ section#research.research-section.section-show {
 }
 
 .projects-filter-primary li {
-  cursor: pointer;
+  cursor: pointer !important;
   display: inline-block !important;
   padding: 12px 30px;
   font-size: 13px !important;
@@ -2228,11 +2228,16 @@ section#research.research-section.section-show {
   position: relative;
   z-index: 150;
   pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .projects-filter-primary li:hover {
   transform: translateY(-2px);
   background: rgba(19, 133, 126, 0.1) !important;
+  cursor: pointer !important;
 }
 
 /* Active State */
@@ -2262,7 +2267,7 @@ section#research.research-section.section-show {
 }
 
 .projects-filter-secondary li {
-  cursor: pointer;
+  cursor: pointer !important;
   display: inline-block !important;
   padding: 8px 20px;
   font-size: 15px !important;
@@ -2275,8 +2280,17 @@ section#research.research-section.section-show {
   background: transparent !important;
 
   /* FIX: Ensure each button is fully clickable */
-  pointer-events: auto;
+  pointer-events: auto !important;
   z-index: 101;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.projects-filter-secondary li:hover {
+  color: var(--portfolio-color) !important;
+  cursor: pointer !important;
 }
 
 .projects-filter-secondary li:hover {
