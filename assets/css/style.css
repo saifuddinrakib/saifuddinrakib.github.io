@@ -2129,27 +2129,55 @@ section#research.research-section.section-show {
 /*--------------------------------------------------------------
 # Projects
 --------------------------------------------------------------*/
-/* Projects Section Styling */
-/*--------------------------------------------------------------
-# Projects Section
---------------------------------------------------------------*/
-.projects-section {
-  background: #f5f7fa;
-  padding: 80px 0;
+
+
+/* DEFINING YOUR BRAND COLOR */
+:root {
+  --portfolio-color: #13857E;
+  --portfolio-color-dark: #0e635d;
+  --text-dark: #2d3748;
+  --text-light: #718096;
 }
 
+.projects-section {
+  background: #f8f9fa;
+  padding: 20px 0 80px 0;
+}
+
+/* FIX PART 1: Make the title container ignore mouse interactions */
+.projects-section .section-title {
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+  /* Crucial: Allows mouse to pass through the title to the buttons below */
+}
+
+/* 1. Heading Styling */
 .projects-section .section-title h2 {
   font-size: 36px !important;
-  font-weight: 700 !important;
-  margin-bottom: 50px !important;
-  color: #1a202c !important;
-  letter-spacing: 2px !important;
+  font-weight: 800 !important;
+  margin-bottom: 40px !important;
+  color: var(--text-dark) !important;
+  letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
-  line-height: 1.2 !important;
+  position: relative;
+  /* Flex allows the line to sit perfectly next to text */
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  /* Lower priority than buttons */
 }
 
+/* The Line on the Right */
 .projects-section .section-title h2::after {
-  display: none !important;
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--portfolio-color);
+  margin-left: 20px;
+  border-radius: 2px;
 }
 
 /* Isotope Filter Transition */
@@ -2162,53 +2190,58 @@ section#research.research-section.section-show {
   z-index: -1;
 }
 
-/* Primary Filter */
+/* 2. Primary Filter (All, Undergraduate, Graduate) */
 .projects-filter-primary {
   padding: 0;
-  margin: 0 0 20px 0;
+  margin: 0 0 25px 0;
   list-style: none;
   text-align: center;
   display: flex !important;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 15px;
+
+  /* FIX PART 2: Force buttons to be clickable and on top */
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 .projects-filter-primary li {
   cursor: pointer;
   display: inline-block !important;
-  padding: 14px 32px;
+  padding: 12px 30px;
   font-size: 13px !important;
   font-weight: 700 !important;
-  line-height: 1.5 !important;
   text-transform: uppercase;
-  color: #4a5568 !important;
-  margin: 5px 10px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 30px;
-  background: #ffffff !important;
-  border: 2px solid #cbd5e0;
   letter-spacing: 1px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background: #ffffff !important;
+  color: var(--portfolio-color) !important;
+  border: 2px solid var(--portfolio-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  /* FIX 2: Ensure buttons sit on top of any overlapping headers/margins */
+  position: relative;
+  z-index: 51;
 }
 
 .projects-filter-primary li:hover {
-  background: #4299e1 !important;
-  color: #ffffff !important;
-  border-color: #4299e1;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(66, 153, 225, 0.4);
-}
-
-.projects-filter-primary li.filter-active {
-  background: #1e1c1c !important;
-  color: #ffffff !important;
-  border-color: #f0bf4c;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgb(159, 132, 132);
+  background: rgba(19, 133, 126, 0.1) !important;
 }
 
-/* Secondary Filter */
+/* Active State */
+.projects-filter-primary li.filter-active {
+  background: var(--portfolio-color) !important;
+  color: #ffffff !important;
+  border-color: var(--portfolio-color);
+  box-shadow: 0 5px 15px rgba(19, 133, 126, 0.4);
+}
+
+/* 3. Secondary Filter (Robotics, Mechanical, IoT) */
 .projects-filter-secondary {
   padding: 0;
   margin: 0 0 50px 0;
@@ -2218,248 +2251,188 @@ section#research.research-section.section-show {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  /* Ensure secondary filters are also accessible */
+  position: relative;
+  z-index: 40;
 }
 
 .projects-filter-secondary li {
   cursor: pointer;
   display: inline-block !important;
-  padding: 10px 22px;
+  padding: 8px 20px;
   font-size: 15px !important;
-  font-weight: 700 !important;
-  line-height: 1.5 !important;
-  color: #f0bf4c !important;
-  margin: 5px 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 25px;
-  background: transparent !important;
+  font-weight: 600 !important;
+  margin: 0 5px;
+  transition: all 0.3s ease;
   position: relative;
   text-transform: capitalize;
-  letter-spacing: 1px;
+  color: var(--text-light) !important;
+  background: transparent !important;
 }
 
 .projects-filter-secondary li:hover {
-  color: #f0bf4c !important;
-  transform: scale(1.08);
-  background: rgba(229, 62, 62, 0.08) !important;
+  color: var(--portfolio-color) !important;
 }
 
+/* Active: Teal Text */
 .projects-filter-secondary li.filter-active {
-  color: #f0bf4c !important;
-  background: rgba(229, 62, 62, 0.12) !important;
+  color: var(--portfolio-color) !important;
   font-weight: 800 !important;
 }
 
 .projects-filter-secondary li.filter-active::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 70%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #f0bf4c, transparent);
+  width: 20px;
+  height: 2px;
+  background: var(--portfolio-color);
   border-radius: 2px;
 }
 
-/* Projects Container */
+/* 4. Projects Container & Cards */
 .projects-container {
-  margin-top: 40px;
-}
-
-.project-item {
-  margin-bottom: 40px;
-  perspective: 1000px;
-}
-
-/* Project Card - Enhanced Pop-up Effect */
-.project-card {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  height: 100%;
+  margin-top: 20px;
   position: relative;
-  transform-style: preserve-3d;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  transform: translateY(-20px) scale(1.05);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
   z-index: 10;
 }
 
-/* Project Image */
+.project-item {
+  margin-bottom: 30px;
+}
+
+/* Project Card Styling */
+.project-card {
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  /* Default layer */
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  /* Pop to very front on hover */
+}
+
 .project-image {
   position: relative;
   overflow: hidden;
-  height: 300px;
-  background: #1a202c;
+  height: 250px;
+  z-index: 1;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 1;
+  transition: transform 0.5s ease;
 }
 
 .project-card:hover .project-image img {
-  transform: scale(1.15);
-  opacity: 0.9;
+  transform: scale(1.1);
 }
 
-/* Project Overlay - Enhanced */
+/* Project Overlay */
 .project-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background: linear-gradient(to top,
-      rgba(26, 32, 44, 0.95) 0%,
-      rgba(26, 32, 44, 0.75) 50%,
-      rgba(26, 32, 44, 0.3) 80%,
-      transparent 100%);
-  padding: 30px 25px 25px;
-  opacity: 1;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(19, 133, 126, 0.8) 100%);
+  padding: 30px;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s ease;
+  transform: translateY(20px);
+
+  /* CRITICAL: Allows mouse to pass through invisible overlay */
+  z-index: 2;
+  pointer-events: none;
 }
 
 .project-card:hover .project-overlay {
-  background: linear-gradient(to top,
-      rgba(26, 32, 44, 0.98) 0%,
-      rgba(26, 32, 44, 0.85) 60%,
-      rgba(26, 32, 44, 0.4) 90%,
-      transparent 100%);
-  padding: 35px 25px 30px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  /* Enable clicks only when visible */
 }
 
 .project-overlay h4 {
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 12px;
-  line-height: 1.4;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  transform: translateY(-20px);
+  transition: transform 0.4s ease 0.1s;
 }
 
 .project-card:hover .project-overlay h4 {
-  font-size: 20px;
-  letter-spacing: 0;
-  transform: translateY(-2px);
-}
-
-.project-overlay .view-details {
-  display: inline-block;
-  color: #63b3ed;
-  font-weight: 700;
-  font-size: 15px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(15px);
-  padding: 8px 18px;
-  border: 2px solid #63b3ed;
-  border-radius: 25px;
-  background: rgba(99, 179, 237, 0.1);
-  backdrop-filter: blur(5px);
-  letter-spacing: 1px;
-}
-
-.project-card:hover .project-overlay .view-details {
-  opacity: 1;
   transform: translateY(0);
 }
 
+/* View Details Button */
+.project-overlay .view-details {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  color: var(--portfolio-color);
+}
+
 .project-overlay .view-details:hover {
+  background: var(--portfolio-color-dark);
   color: #ffffff;
-  background: #63b3ed;
-  box-shadow: 0 4px 15px rgba(99, 179, 237, 0.5);
-  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .project-image {
-    height: 260px;
-  }
-
-  .project-card:hover {
-    transform: translateY(-15px) scale(1.03);
-  }
-
-  .projects-filter-primary li {
-    padding: 12px 24px;
-    font-size: 12px;
-    margin: 5px 6px;
-  }
-
-  .projects-filter-secondary li {
-    padding: 8px 18px;
-    font-size: 14px;
-    margin: 5px 8px;
-  }
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .projects-section {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 
   .projects-section .section-title h2 {
-    font-size: 28px;
-    margin-bottom: 35px;
+    font-size: 28px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .projects-section .section-title h2::after {
+    width: 40px;
+    margin-left: 15px;
   }
 
   .projects-filter-primary li {
     padding: 10px 20px;
-    font-size: 11px;
-    margin: 4px;
+    font-size: 12px !important;
   }
 
-  .projects-filter-secondary li {
-    padding: 8px 16px;
-    font-size: 13px;
-    margin: 5px;
-  }
-
-  .project-image {
-    height: 240px;
-  }
-
-  .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-  }
-
-  .project-overlay h4 {
-    font-size: 17px;
-  }
-
-  .project-overlay .view-details {
-    opacity: 1;
-    transform: translateY(0);
-    font-size: 14px;
-    padding: 6px 14px;
-  }
-}
-
-@media (max-width: 576px) {
   .project-image {
     height: 220px;
   }
-
-  .project-item {
-    margin-bottom: 30px;
-  }
-
-  .project-card:hover {
-    transform: translateY(-8px) scale(1.02);
-  }
 }
-
 
 /*--------------------------------------------------------------
 # Contact
