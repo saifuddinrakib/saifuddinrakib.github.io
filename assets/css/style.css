@@ -2178,6 +2178,7 @@ section#research.research-section.section-show {
   background: var(--portfolio-color);
   margin-left: 20px;
   border-radius: 2px;
+  pointer-events: none;
 }
 
 /* Isotope Filter Transition */
@@ -2223,9 +2224,10 @@ section#research.research-section.section-show {
   border: 2px solid var(--portfolio-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 
-  /* FIX 2: Ensure buttons sit on top of any overlapping headers/margins */
+  /* FIX: Ensure buttons sit on top of any overlapping headers/margins */
   position: relative;
-  z-index: 51;
+  z-index: 150;
+  pointer-events: auto !important;
 }
 
 .projects-filter-primary li:hover {
@@ -2271,7 +2273,7 @@ section#research.research-section.section-show {
   text-transform: capitalize;
   color: var(--text-light) !important;
   background: transparent !important;
-  
+
   /* FIX: Ensure each button is fully clickable */
   pointer-events: auto;
   z-index: 101;
