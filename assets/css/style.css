@@ -2268,7 +2268,8 @@ section#research.research-section.section-show {
   position: relative;
   text-transform: capitalize;
   color: var(--text-light) !important;
-  background: transparent !important;
+  border-radius: 25px;
+  background: #e5e0e0 !important;
 }
 
 .projects-filter-secondary li:hover {
