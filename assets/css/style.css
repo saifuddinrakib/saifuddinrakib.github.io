@@ -2717,11 +2717,6 @@ CONTACT SECTION - Clean Final Version========================================*/
   background: #f8f9fa;
 }
 
-/* WhatsApp */
-.social-icon-btn:nth-child(4) {
-  background: #f8f9fa;
-}
-
 /* GitHub */
 .social-icon-btn:nth-child(5) {
   background: #f8f9fa;
@@ -2742,15 +2737,7 @@ CONTACT SECTION - Clean Final Version========================================*/
   background: #f8f9fa;
 }
 
-/* Instagram */
-.social-icon-btn:nth-child(9) {
-  background: #f8f9fa;
-}
 
-/* YouTube */
-.social-icon-btn:nth-child(10) {
-  background: #f8f9fa;
-}
 
 /* Discord */
 
