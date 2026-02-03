@@ -2578,13 +2578,16 @@ CONTACT SECTION - Clean Final Version========================================*/
 }
 
 /* ===== Contact Details Main Card ===== */
+/* ===== Contact Details Main Card ===== */
 .contact-details-main-card {
   background: #ffffff;
   border-radius: 15px;
-  padding: 25px 30px 15px 30px;
+  padding: 25px 30px 30px 30px;
   /* Reduced all paddings */
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-heading {
@@ -2600,7 +2603,7 @@ CONTACT SECTION - Clean Final Version========================================*/
 .contact-info-box {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom removed to let flex container handle spacing */
   padding: 16px 20px;
   background: #f8f9fa;
   border-radius: 10px;
