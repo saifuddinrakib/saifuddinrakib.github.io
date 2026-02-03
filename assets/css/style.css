@@ -1435,8 +1435,7 @@ section#research.research-section.section-show {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
-  max-height: 650px;
-  overflow-y: auto;
+  /* REMOVED FIXED HEIGHT for full width layout */
   scrollbar-width: thin;
   scrollbar-color: #2a9d90 #f1f1f1;
   margin-top: 0;
