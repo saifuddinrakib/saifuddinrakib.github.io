@@ -1104,10 +1104,10 @@
     <div class="row contact-content-row">
 
       <!-- Left Column: Profile & Map -->
-      <div class="col-lg-4 col-md-12 mb-4">
+      <div class="col-lg-4 col-md-12 mb-4 d-flex flex-column">
 
         <!-- Profile Card - Center Aligned -->
-        <div class="profile-card-center">
+        <div class="profile-card-center flex-shrink-0">
           <div class="profile-image-wrapper">
             <img src="assets/img/Copy of Untitled.jpg" alt="Md Saifuddin Rakib" class="profile-img">
           </div>
@@ -1115,13 +1115,13 @@
           <p class="profile-subtitle">Mechanical Engineer | Materials Science Researcher</p>
         </div>
 
-        <!-- Map Card -->
-        <div class="map-card">
+        <!-- Map Card - Stretches to fill space -->
+        <div class="map-card flex-grow-1 d-flex flex-column">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1302659.8426903102!2d91.54756387106053!3d23.423688549222074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDA5JzUyLjQiTiA5McKwMTMnMTkuNyJF!5e0!3m2!1sen!2sus!4v1769663193852!5m2!1sen!2sus"
-            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <div class="map-footer-text">
+            width="100%" height="100%" style="border:0; min-height: 300px; flex-grow: 1;" allowfullscreen=""
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="map-footer-text flex-shrink-0">
             <a href="https://www.google.com/maps?q=23.164550355499728,91.22215014738373" target="_blank"
               class="view-map-link">
               <small><i class="bx bx-map"></i> View larger map</small>
