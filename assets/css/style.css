@@ -614,6 +614,8 @@ section {
   bottom: 100%;
   opacity: 0;
   z-index: 2;
+  pointer-events: none;
+  /* FIX: Prevent hidden sections from blocking clicks */
 }
 
 section.section-show {
@@ -621,6 +623,8 @@ section.section-show {
   bottom: auto;
   opacity: 1;
   padding-bottom: 0;
+  pointer-events: auto;
+  /* FIX: Re-enable clicks for active section */
 }
 
 section .container {
@@ -2106,14 +2110,7 @@ section#research.research-section.section-show {
   }
 }
 
-/* BJIT Logo Special Fix */
-.services .company-logo[src$="bjit_logo.png"],
-.services .company-info img[alt="BJIT Logo"] {
-  object-fit: contain;
-  padding: 6px;
-  background: #ffffff;
-  border-radius: 50%;
-}
+
 
 /* Desktop: hide mobile nav */
 @media (min-width: 992px) {
