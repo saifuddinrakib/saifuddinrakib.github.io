@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/website_images/favicon.png" />
+  <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Ceiling Mounting Mass Reduction with Ensured Safety using ANSYS Topology Optimization">
+  <title>Ceiling Mounting Optimization | Saifuddin Rakib</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #0F766E;
+      --secondary-color: #27ae60;
+      --dark-bg: #0a0e27;
+      --card-bg: #ffffff;
+      --text-primary: #2c3e50;
+      --text-secondary: #7f8c8d;
+      --border-color: #e1e8ed;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: #f8f9fa;
+    }
+
+    /* Header Navigation */
+    .navbar {
+      background: var(--card-bg);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Project Header */
+    .project-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .project-header h1 {
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Content Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* Main Content */
+    .main-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      text-align: justify;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    .section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      color: var(--text-secondary);
+      position: relative;
+    }
+
+    /* Default list style with arrow */
+    .section ul:not(.icon-list) li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Styles for lists with custom icons */
+    .section ul.icon-list li {
+      padding-left: 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .section ul.icon-list li i {
+      color: var(--primary-color);
+      margin-top: 5px;
+      min-width: 20px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      text-align: justify;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-value {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .date-range {
+      display: flex;
+      gap: 15px;
+    }
+
+    .date-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .date-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .date-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Tech Stack Tags */
+    .tech-tags,
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-tag {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .tool-tag {
+      display: flex;
+      flex-direction: column;
+      background: #f8f9fa;
+      padding: 0.5rem;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+      background: #3498db;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-header h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">Saifuddin Rakib</a>
+      <a href="../../index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Project Header -->
+    <div class="project-header">
+      <h1><i class="fas fa-cube"></i> Ceiling Mounting Optimization</h1>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="content-grid">
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Overview Section -->
+        <div class="section">
+          <h2>Overview</h2>
+          <p>
+            <strong>Ceiling Mounting Mass Reduction with Ensured Safety</strong> is an advanced engineering project that
+            leverages <strong>ANSYS Topology Optimization</strong> to achieve significant weight reduction while
+            maintaining structural integrity and safety standards. This project demonstrates the application of
+            cutting-edge computational design techniques to optimize ceiling mounting systems for improved efficiency
+            and cost-effectiveness.
+          </p>
+          <p>
+            The project combines finite element analysis (FEA), topology optimization algorithms, and structural
+            validation to create an optimized ceiling mounting design that reduces material usage without compromising
+            safety factors. This approach represents modern engineering practices in lightweight structural design and
+            optimization.
+          </p>
+        </div>
+
+        <!-- Project Visualization -->
+        <div class="section">
+          <h2>Project Visualization</h2>
+          <div style="text-align: center; margin: 1.5rem 0;">
+            <img src="ceilingmouting.png" alt="Ceiling Mounting Topology Optimization Results"
+              style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: var(--shadow);">
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary); font-style: italic;">
+              Topology optimization results showing optimized material distribution and stress analysis
+            </p>
+          </div>
+        </div>
+
+        <!-- Objectives -->
+        <div class="section">
+          <h2>Objectives</h2>
+          <p>
+            The primary goal was to achieve 30-40% weight reduction while maintaining structural integrity and safety
+            standards. The project focused on optimizing material distribution using ANSYS algorithms, conducting stress
+            and strain analysis under various loading conditions, and validating designs through comprehensive FEA to
+            ensure all performance criteria were met.
+          </p>
+        </div>
+
+        <!-- Methodology & Technical Approach -->
+        <div class="section">
+          <h2>Methodology & Technical Approach</h2>
+          <p>
+            The optimization process followed a systematic workflow combining CAD modeling, finite element analysis, and
+            topology optimization:
+          </p>
+          <ul class="icon-list">
+            <li>
+              <i class="fas fa-cube"></i>
+              <div>Created initial 3D CAD model with detailed geometry and assembly constraints</div>
+            </li>
+            <li>
+              <i class="fas fa-project-diagram"></i>
+              <div>Established comprehensive FEA setup including mesh generation, boundary conditions, and load
+                applications</div>
+            </li>
+            <li>
+              <i class="fas fa-sliders-h"></i>
+              <div>Defined material properties (Young's modulus, Poisson's ratio, yield strength)</div>
+            </li>
+            <li>
+              <i class="fas fa-pencil-ruler"></i>
+              <div>Established design space with optimization constraints and non-design regions</div>
+            </li>
+            <li>
+              <i class="fas fa-arrows-alt"></i>
+              <div>Applied realistic loading scenarios including dead loads, live loads, and safety factors</div>
+            </li>
+            <li>
+              <i class="fas fa-brain"></i>
+              <div>Used ANSYS topology optimization algorithms to determine optimal material distribution</div>
+            </li>
+            <li>
+              <i class="fas fa-sync-alt"></i>
+              <div>Performed iterative refinement through multiple optimization cycles</div>
+            </li>
+            <li>
+              <i class="fas fa-microscope"></i>
+              <div>Conducted detailed stress and deformation analysis (von Mises stress, displacement, safety factors)
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-check-double"></i>
+              <div>Validated optimized design against original performance criteria and safety requirements</div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Project Details -->
+        <div class="info-card">
+          <h3><i class="fas fa-info-circle"></i> Project Details</h3>
+          <div class="info-item">
+            <span class="info-label"><strong>Status</strong></span>
+            <span class="status-badge"><i class="fas fa-check"></i> Completed</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Project Duration</strong></span>
+            <div class="date-range">
+              <div class="date-item">
+                <span class="date-label">Start Date :</span>
+                <span class="date-value">Jan 2023</span>
+              </div>
+              <div class="date-item">
+                <span class="date-label">End Date :</span>
+                <span class="date-value">Jun 2023</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Institution</strong></span>
+            <span class="info-value">IUT</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Category</strong></span>
+            <span class="info-value">CAE, FEA, Optimization</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Team Size</strong></span>
+            <span class="info-value">Individual Project</span>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="info-card">
+          <h3><i class="fas fa-link"></i> Links</h3>
+          <div class="action-buttons">
+            <a href="https://github.com/saifuddinrakib" class="btn btn-primary" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+          <div class="action-buttons">
+            <a href="Files/Ceiling Mounting mass reduction with ensured safety using ANSYS topology optimization.pdf"
+              class="btn btn-secondary" target="_blank">
+              <i class="fas fa-file-pdf"></i> View PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- Tools Used -->
+        <div class="info-card">
+          <h3><i class="fas fa-tools"></i> Tools Used</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">ANSYS Workbench</span>
+            <span class="tech-tag">ANSYS Mechanical</span>
+            <span class="tech-tag">SolidWorks</span>
+            <span class="tech-tag">CAD Software</span>
+          </div>
+        </div>
+
+        <!-- Technologies Used -->
+        <div class="info-card">
+          <h3><i class="fas fa-microchip"></i> Technologies Used</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Topology Optimization</span>
+            <span class="tech-tag">Finite Element Analysis</span>
+            <span class="tech-tag">Structural Analysis</span>
+            <span class="tech-tag">CAE Simulation</span>
+            <span class="tech-tag">Stress Analysis</span>
+            <span class="tech-tag">Design Optimization</span>
+          </div>
+        </div>
+
+        <!-- Skills Gained -->
+        <div class="info-card">
+          <h3><i class="fas fa-graduation-cap"></i> Skills Gained</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">ANSYS Expertise</span>
+            <span class="tech-tag">FEA Modeling</span>
+            <span class="tech-tag">Optimization Techniques</span>
+            <span class="tech-tag">Structural Design</span>
+            <span class="tech-tag">CAE Analysis</span>
+            <span class="tech-tag">Engineering Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
