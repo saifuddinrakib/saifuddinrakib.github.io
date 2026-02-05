@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crane-O-Mania - Portfolio Project</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #0891b2;
+      --secondary-color: #0e7490;
+      --accent-color: #06b6d4;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-light);
+    }
+
+    .navbar {
+      background: var(--bg-white);
+      padding: 1rem 2rem;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .project-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .project-header h1 {
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .awards-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: white;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .section {
+      background: var(--bg-white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .overview-content {
+      color: var(--text-primary);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .overview-content p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    .functionality-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .functionality-list li {
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      background: var(--bg-light);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 6px;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+
+    .functionality-list li strong {
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .progress-content {
+      color: var(--text-primary);
+      line-height: 1.8;
+    }
+
+    .progress-content p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    .progress-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .progress-list li {
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      background: var(--bg-light);
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .progress-list li::before {
+      content: "➤";
+      color: var(--primary-color);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .progress-list li strong {
+      color: var(--secondary-color);
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--bg-white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-value {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .date-range {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: var(--bg-light);
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .date-item {
+      flex: 1;
+      text-align: center;
+    }
+
+    .date-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .date-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      display: block;
+    }
+
+    .date-separator {
+      color: var(--border-color);
+      font-size: 1.2rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-tag {
+      background: var(--bg-white);
+      color: var(--primary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1.5px solid var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .tools-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tool-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg-light);
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .tool-item:hover {
+      background: var(--bg-white);
+      border-left-color: var(--secondary-color);
+      transform: translateX(5px);
+      box-shadow: var(--shadow);
+    }
+
+    .tool-icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .tool-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .tool-category {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .tool-name {
+      font-size: 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+      background: var(--bg-light);
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 968px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        order: -1;
+      }
+
+      .project-header h1 {
+        font-size: 2rem;
+      }
+
+      .date-range {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .date-separator {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      .section {
+        padding: 1.5rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="../../homepage/index.html" class="logo">Saifuddin Rakib</a>
+    <a href="../../homepage/index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Project Header -->
+    <div class="project-header">
+      <h1>🏗️ Crane-O-Mania</h1>
+      <span class="awards-badge">
+        <i class="fas fa-trophy"></i> Techfest IIT Bombay Winner
+      </span>
+      <br>
+      <span class="status-badge">
+        <i class="fas fa-check-circle"></i> Completed
+      </span>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="content-grid">
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Overview Section -->
+        <div class="section">
+          <h2>Overview</h2>
+          <div class="overview-content">
+            <p>
+              Crane-O-Mania is a prestigious engineering design competition organized by Techfest, IIT Bombay - Asia's
+              largest science and technology festival. Our team won this competition by designing and constructing a
+              miniature tower crane using popsicle sticks, cotton strings, and Fevicol adhesive.
+            </p>
+            <p>
+              The challenge was to create a stationary tower crane that could sustain maximum load while maintaining
+              structural integrity, with a base area not exceeding 20cm × 20cm, without any ground anchoring.
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Functionalities -->
+        <div class="section">
+          <h2>Design Constraints</h2>
+          <ul class="functionality-list">
+            <li>
+              <strong>Base Area Limitation:</strong>
+              Maximum base area of 20cm × 20cm without ground anchoring. The crane must be self-standing and stationary.
+            </li>
+            <li>
+              <strong>Material Restrictions:</strong>
+              Only popsicle sticks, cotton strings, and Fevicol adhesive allowed. No strengthening coating permitted.
+            </li>
+            <li>
+              <strong>Pulley Mechanism:</strong>
+              Required pulley arrangement with thread for load application and lifting mechanism.
+            </li>
+            <li>
+              <strong>Flexible Design Options:</strong>
+              Variable boom height and operating radius allowed. Optional 360-degree rotation mechanism for better
+              performance rating.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Current Progress -->
+        <div class="section">
+          <h2>Achievement & Recognition</h2>
+          <div class="progress-content">
+            <p>
+              Our crane design successfully competed against teams from across Asia and won the Crane Design Competition
+              at Techfest IIT Bombay. The project demonstrated excellence in structural engineering, material
+              optimization, and mechanical design.
+            </p>
+            <ul class="progress-list">
+              <li><strong>Competition:</strong> Techfest IIT Bombay Crane-O-Mania</li>
+              <li><strong>Achievement:</strong> Winner - First Place</li>
+              <li><strong>Recognition:</strong> Featured in competition segment banner and received official winner
+                certificate</li>
+              <li><strong>Performance:</strong> Optimal load-to-weight ratio with extended operating radius</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Technologies Used -->
+        <div class="section">
+          <h2>Materials Used</h2>
+          <div class="tech-tags">
+            <span class="tech-tag">Popsicle Sticks</span>
+            <span class="tech-tag">Cotton Strings</span>
+            <span class="tech-tag">Fevicol Adhesive</span>
+            <span class="tech-tag">Pulley System</span>
+            <span class="tech-tag">Structural Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Project Details -->
+        <div class="info-card">
+          <h3><i class="fas fa-info-circle"></i> Project Details</h3>
+          <div class="info-item">
+            <span class="info-label">Status</span>
+            <span class="status-badge"><i class="fas fa-check"></i> Completed</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Competition Date</span>
+            <div class="date-range">
+              <div class="date-item">
+                <span class="date-label">Event</span>
+                <span class="date-value">Dec 2019</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Institution</span>
+            <span class="info-value">Islamic University of Technology</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Category</span>
+            <span class="info-value">Structural Engineering, Mechanical Design</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Team Size</span>
+            <span class="info-value">4 Members</span>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="info-card">
+          <h3><i class="fas fa-link"></i> Links</h3>
+          <div class="action-buttons">
+            <a href="https://github.com/saifuddinrakib" class="btn btn-primary" target="_blank">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+          <div class="action-buttons">
+            <a href="#" class="btn btn-secondary">
+              <i class="fas fa-images"></i> Gallery
+            </a>
+          </div>
+        </div>
+
+        <!-- Tools Used -->
+        <div class="info-card">
+          <h3><i class="fas fa-tools"></i> Tools Used</h3>
+          <div class="tools-grid">
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fas fa-drafting-compass"></i>
+              </div>
+              <div class="tool-info">
+                <span class="tool-category">Design</span>
+                <span class="tool-name">Manual Design</span>
+              </div>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fas fa-hammer"></i>
+              </div>
+              <div class="tool-info">
+                <span class="tool-category">Construction</span>
+                <span class="tool-name">Hand Tools</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Gained -->
+        <div class="info-card">
+          <h3><i class="fas fa-graduation-cap"></i> Skills Gained</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Structural Analysis</span>
+            <span class="tech-tag">Material Science</span>
+            <span class="tech-tag">Mechanical Design</span>
+            <span class="tech-tag">Problem Solving</span>
+            <span class="tech-tag">Teamwork</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
