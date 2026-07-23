@@ -2153,8 +2153,6 @@ section#research.research-section.section-show {
 /* FIX PART 1: Make the title container ignore mouse interactions */
 .projects-section .section-title {
   position: relative;
-  z-index: 0;
-  pointer-events: none;
   /* Crucial: Allows mouse to pass through the title to the buttons below */
 }
 
@@ -2163,15 +2161,12 @@ section#research.research-section.section-show {
   font-weight: 800 !important;
   margin-bottom: 50px !important;
   color: var(--text-dark) !important;
-  letter-spacing: 2px !important;
+  letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
-  line-height: 1.2 !important;
   position: relative;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  z-index: 1;
-  pointer-events: none;
   /* ADD THIS LINE */
 }
 
@@ -2199,7 +2194,7 @@ section#research.research-section.section-show {
 /* Primary Filter */
 .projects-filter-primary {
   padding: 0;
-  margin: 0 0 20px 0;
+  margin: 0 0 25px 0;
   list-style: none;
   text-align: center;
   display: flex !important;
@@ -2211,7 +2206,7 @@ section#research.research-section.section-show {
 .projects-filter-primary li {
   cursor: pointer;
   display: inline-block !important;
-  padding: 14px 32px;
+  padding: 12px 30px;
   pointer-events: auto;
   /* ADD THIS LINE */
   font-size: 13px !important;
@@ -2269,7 +2264,6 @@ section#research.research-section.section-show {
   background: #e5e0e0 !important;
   position: relative;
   text-transform: capitalize;
-  letter-spacing: 1px;
 }
 
 .projects-filter-secondary li:hover {
@@ -2287,14 +2281,15 @@ section#research.research-section.section-show {
 .projects-filter-secondary li.filter-active::after {
   content: '';
   position: absolute;
-  bottom: -0;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 20 PX;
+  width: 20px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #06adb9, transparent);
   border-radius: 2px;
 }
+
 
 /* Projects Container */
 .projects-container {
@@ -2310,13 +2305,14 @@ section#research.research-section.section-show {
 /* Project Card - Enhanced Pop-up Effect */
 .project-card {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
   position: relative;
   cursor: pointer;
+  z-index: 1;
 }
 
 .project-card:hover {
