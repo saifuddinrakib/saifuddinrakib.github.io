@@ -2130,7 +2130,13 @@ section#research.research-section.section-show {
 # Projects
 --------------------------------------------------------------*/
 
-
+/*--------------------------------------------------------------
+# Projects
+--------------------------------------------------------------*/
+/* Projects Section Styling */
+/*--------------------------------------------------------------
+# Projects Section
+--------------------------------------------------------------*/
 /* DEFINING YOUR BRAND COLOR */
 :root {
   --portfolio-color: #13857E;
@@ -2152,21 +2158,21 @@ section#research.research-section.section-show {
   /* Crucial: Allows mouse to pass through the title to the buttons below */
 }
 
-/* 1. Heading Styling */
 .projects-section .section-title h2 {
   font-size: 36px !important;
   font-weight: 800 !important;
-  margin-bottom: 40px !important;
+  margin-bottom: 50px !important;
   color: var(--text-dark) !important;
-  letter-spacing: 1.5px !important;
+  letter-spacing: 2px !important;
   text-transform: uppercase !important;
+  line-height: 1.2 !important;
   position: relative;
-  /* Flex allows the line to sit perfectly next to text */
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
   z-index: 1;
-  /* Lower priority than buttons */
+  pointer-events: none;
+  /* ADD THIS LINE */
 }
 
 /* The Line on the Right */
@@ -2178,7 +2184,6 @@ section#research.research-section.section-show {
   background: var(--portfolio-color);
   margin-left: 20px;
   border-radius: 2px;
-  pointer-events: none;
 }
 
 /* Isotope Filter Transition */
@@ -2191,64 +2196,54 @@ section#research.research-section.section-show {
   z-index: -1;
 }
 
-/* 2. Primary Filter (All, Undergraduate, Graduate) */
+/* Primary Filter */
 .projects-filter-primary {
   padding: 0;
-  margin: 0 0 25px 0;
+  margin: 0 0 20px 0;
   list-style: none;
   text-align: center;
   display: flex !important;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-
-  /* FIX PART 2: Force buttons to be clickable and on top */
-  position: relative;
-  z-index: 100;
-  pointer-events: auto;
 }
 
 .projects-filter-primary li {
-  cursor: pointer !important;
+  cursor: pointer;
   display: inline-block !important;
-  padding: 12px 30px;
+  padding: 14px 32px;
+  pointer-events: auto;
+  /* ADD THIS LINE */
   font-size: 13px !important;
   font-weight: 700 !important;
+  line-height: 1.5 !important;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  background: #ffffff !important;
   color: var(--portfolio-color) !important;
+  margin: 5px 10px;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  background: #ffffff !important;
   border: 2px solid var(--portfolio-color);
+  letter-spacing: 1px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-
-  /* FIX: Ensure buttons sit on top of any overlapping headers/margins */
-  position: relative;
-  z-index: 150;
-  pointer-events: auto !important;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 
 .projects-filter-primary li:hover {
-  transform: translateY(-2px);
   background: rgba(19, 133, 126, 0.1) !important;
-  cursor: pointer !important;
+  border: 2px solid var(--portfolio-color);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(66, 153, 225, 0.4);
 }
 
-/* Active State */
 .projects-filter-primary li.filter-active {
   background: var(--portfolio-color) !important;
   color: #ffffff !important;
   border-color: var(--portfolio-color);
+  transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(19, 133, 126, 0.4);
 }
 
-/* 3. Secondary Filter (Robotics, Mechanical, IoT) */
+/* Secondary Filter */
 .projects-filter-secondary {
   padding: 0;
   margin: 0 0 50px 0;
@@ -2258,46 +2253,32 @@ section#research.research-section.section-show {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-
-  /* FIX: Ensure secondary filters are fully accessible and on top */
-  position: relative;
-  z-index: 100;
-  pointer-events: auto;
 }
 
 .projects-filter-secondary li {
-  cursor: pointer !important;
+  cursor: pointer;
   display: inline-block !important;
   padding: 8px 20px;
   font-size: 15px !important;
   font-weight: 600 !important;
-  margin: 0;
+  line-height: 1.5 !important;
+  color: var(--text-light) !important;
+  margin: 0 5px;
   transition: all 0.3s ease;
+  border-radius: 25px;
+  background: #e5e0e0 !important;
   position: relative;
   text-transform: capitalize;
-  color: var(--text-light) !important;
-  background: transparent !important;
-
-  /* FIX: Ensure each button is fully clickable */
-  pointer-events: auto !important;
-  z-index: 101;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  letter-spacing: 1px;
 }
 
 .projects-filter-secondary li:hover {
   color: var(--portfolio-color) !important;
-  cursor: pointer !important;
+  border: .5px solid var(--portfolio-color);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(66, 153, 225, 0.4);
 }
 
-.projects-filter-secondary li:hover {
-  color: var(--portfolio-color) !important;
-}
-
-/* Active: Teal Text */
 .projects-filter-secondary li.filter-active {
   color: var(--portfolio-color) !important;
   font-weight: 800 !important;
@@ -2306,16 +2287,16 @@ section#research.research-section.section-show {
 .projects-filter-secondary li.filter-active::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -0;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
+  width: 20 PX;
   height: 2px;
-  background: var(--portfolio-color);
+  background: linear-gradient(90deg, transparent, #06adb9, transparent);
   border-radius: 2px;
 }
 
-/* 4. Projects Container & Cards */
+/* Projects Container */
 .projects-container {
   margin-top: 20px;
   position: relative;
@@ -2326,27 +2307,25 @@ section#research.research-section.section-show {
   margin-bottom: 30px;
 }
 
-/* Project Card Styling */
+/* Project Card - Enhanced Pop-up Effect */
 .project-card {
   background: #ffffff;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
   position: relative;
   cursor: pointer;
-  z-index: 1;
-  /* Default layer */
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   z-index: 100;
-  /* Pop to very front on hover */
 }
 
+/* Project Image */
 .project-image {
   position: relative;
   overflow: hidden;
@@ -2365,7 +2344,8 @@ section#research.research-section.section-show {
   transform: scale(1.1);
 }
 
-/* Project Overlay */
+
+/* Project Overlay - Enhanced */
 .project-overlay {
   position: absolute;
   bottom: 0;
@@ -2378,14 +2358,10 @@ section#research.research-section.section-show {
   height: 100%;
   opacity: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
   transition: all 0.4s ease;
   transform: translateY(20px);
-
-  /* CRITICAL: Allows mouse to pass through invisible overlay */
   z-index: 2;
   pointer-events: none;
 }
@@ -2410,7 +2386,6 @@ section#research.research-section.section-show {
   transform: translateY(0);
 }
 
-/* View Details Button */
 .project-overlay .view-details {
   display: inline-block;
   padding: 10px 25px;
@@ -2424,10 +2399,18 @@ section#research.research-section.section-show {
   color: var(--portfolio-color);
 }
 
-.project-overlay .view-details:hover {
+.project-card:hover .project-overlay .view-details {
   background: var(--portfolio-color-dark);
   color: #ffffff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.project-overlay .view-details:hover {
+  color: #ffffff;
+  background: #63b3ed;
+  box-shadow: 0 4px 15px rgba(99, 179, 237, 0.5);
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* Responsive Adjustments */
@@ -2451,10 +2434,44 @@ section#research.research-section.section-show {
     font-size: 12px !important;
   }
 
+  .projects-filter-secondary li {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
   .project-image {
     height: 220px;
   }
+
+  .project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  .project-overlay h4 {
+    font-size: 17px;
+  }
+
+  .project-overlay .view-details {
+    font-size: 14px;
+    padding: 6px 14px;
+  }
 }
+
+@media (max-width: 576px) {
+  .project-image {
+    height: 200px;
+  }
+
+  .project-item {
+    margin-bottom: 30px;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+
 
 /*--------------------------------------------------------------
 # Contact
