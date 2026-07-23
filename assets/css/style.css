@@ -130,6 +130,7 @@ h6 {
   flex-shrink: 0;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(248, 247, 244, 0.3);
   transition: all 0.3s ease;
+  image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   outline: 1px solid rgba(245, 245, 245, 0.1);
   outline-offset: 2px;
@@ -1027,10 +1028,10 @@ section#research.research-section.section-show {
   pointer-events: auto !important;
   /* allow clicks */
   cursor: pointer !important;
-  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none;
 }
 
 /* Hover effect for all research icons */
@@ -1053,10 +1054,10 @@ section#research.research-section.section-show {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  user-select: none;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -1286,7 +1287,7 @@ section#research.research-section.section-show {
   .pub-patents .patents-col,
   .pub-patents .pubs-col {
     padding: 20px;
-    min-height: auto;
+    min-height: 0;
     margin: 0;
     flex: none;
     max-width: 100%;
@@ -1435,28 +1436,7 @@ section#research.research-section.section-show {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
-  /* REMOVED FIXED HEIGHT for full width layout */
-  scrollbar-width: thin;
-  scrollbar-color: #2a9d90 #f1f1f1;
   margin-top: 0;
-}
-
-.awards-certifications-box::-webkit-scrollbar {
-  width: 8px;
-}
-
-.awards-certifications-box::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.awards-certifications-box::-webkit-scrollbar-thumb {
-  background: #2a9d90;
-  border-radius: 10px;
-}
-
-.awards-certifications-box::-webkit-scrollbar-thumb:hover {
-  background: #2a9d90;
 }
 
 .achievements h3 {
@@ -1880,7 +1860,7 @@ section#research.research-section.section-show {
   }
 
   .affiliation-card h4 {
-    min-height: auto;
+    min-height: 0;
   }
 }
 
