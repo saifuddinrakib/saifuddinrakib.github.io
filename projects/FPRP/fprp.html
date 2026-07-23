@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/website_images/favicon.png" />
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Futurism on Plastic Recycling Plant (FPRP) - Interactive Virtual Reality Experience">
+  <title>Futurism on Plastic Recycling Plant (FPRP) | Saifuddin Rakib</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #0F766E;
+      --secondary-color: #27ae60;
+      --dark-bg: #0a0e27;
+      --card-bg: #ffffff;
+      --text-primary: #2c3e50;
+      --text-secondary: #7f8c8d;
+      --border-color: #e1e8ed;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: #f8f9fa;
+    }
+
+    /* Header Navigation */
+    .navbar {
+      background: var(--card-bg);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .back-btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Project Header */
+    .project-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .project-header h1 {
+      font-size: 2.5rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Content Grid */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* Main Content */
+    .main-content {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      text-align: justify;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    .section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .section ul li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      color: var(--text-secondary);
+      position: relative;
+    }
+
+    .section ul li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      text-align: justify;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .info-value {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Tech Stack Tags */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-tag {
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+      background: #3498db;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    /* Demo Section */
+    .demo-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+      margin: 2rem 0;
+    }
+
+    .demo-section h2 {
+      color: white;
+      border: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-btn {
+      background: white;
+      color: #667eea;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .demo-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-header h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">Saifuddin Rakib</a>
+      <a href="../../index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Portfolio
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Project Header -->
+    <div class="project-header">
+      <h1>♻️ Futurism on Plastic Recycling Plant (FPRP)</h1>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="content-grid">
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Overview Section -->
+        <div class="section">
+          <h2>Overview</h2>
+          <p>
+            This project was developed for a competition at DUET (Dhaka University of Engineering & Technology),
+            focusing on innovative plastic recycling solutions.
+            The primary goal was to design and build a small-scale model of a plastic recycling plant that converts
+            waste plastic into reusable materials for road construction and pothole repair.
+          </p>
+          <p>
+            Our system features a dual-chamber design: a heating chamber where waste plastic is melted using heating
+            coils, and a cooling chamber where the molten plastic
+            is shaped and solidified into specific forms suitable for road construction applications. The innovative use
+            of Peltier modules for temperature control
+            demonstrates an energy-efficient approach to the recycling process.
+          </p>
+        </div>
+
+        <!-- Awards Section -->
+        <div class="section">
+          <h2>Awards</h2>
+          <ul>
+            <li>Participated in DUET Project Competition</li>
+            <li>Demonstrated innovative approach to plastic waste management</li>
+            <li>Showcased practical application for road construction materials</li>
+          </ul>
+        </div>
+
+        <!-- Technical Components -->
+        <div class="section">
+          <h2>Technical Components</h2>
+          <ul>
+            <li><strong>Heating Chamber:</strong> Equipped with heating coils to melt waste plastic at controlled
+              temperatures, converting solid plastic waste into molten form</li>
+            <li><strong>Cooling Chamber:</strong> Features a water-based cooling system where molten plastic drops into
+              cool water, solidifying into predetermined shapes for road applications</li>
+            <li><strong>Peltier Temperature Control:</strong> Utilizes Peltier modules with the heated side positioned
+              in the lower section, integrated with flowing cooling water pipes to create efficient temperature
+              differential</li>
+            <li><strong>Shaping Mechanism:</strong> Designed to produce recycled plastic pieces in specific shapes
+              suitable for filling potholes and road construction</li>
+            <li><strong>Small-Scale Model:</strong> Proof-of-concept design demonstrating the feasibility of the
+              recycling process for potential scale-up</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Project Details -->
+        <div class="info-card">
+          <h3><i class="fas fa-info-circle"></i> Project Details</h3>
+          <div class="info-item">
+            <span class="info-label"><strong>Status</strong></span>
+            <span class="status-badge"><i class="fas fa-check"></i> Completed</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Competitions</strong></span>
+            <span class="info-value">DUET Project Competition & IUBAT Innovation Competition (2018)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Category</strong></span>
+            <span class="info-value">Environmental Engineering, Recycling Innovation</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Application</strong></span>
+            <span class="info-value">Road Construction & Pothole Repair</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label"><strong>Team Members</strong></span>
+            <span class="info-value">Md Saifuddin Rakib & Mustahid Ahmed, Tarek Rahman, Sabbir Ahmed</span>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="info-card">
+          <h3><i class="fas fa-link"></i> Links</h3>
+          <div class="action-buttons">
+            <a href="FPRP.pdf" class="btn btn-primary" target="_blank">
+              <i class="fas fa-file-pdf"></i> View Documentation
+            </a>
+          </div>
+        </div>
+
+        <!-- Tools & Technologies -->
+        <div class="info-card">
+          <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Heating Coils</span>
+            <span class="tech-tag">Peltier Modules</span>
+            <span class="tech-tag">Water Cooling System</span>
+            <span class="tech-tag">Temperature Control</span>
+            <span class="tech-tag">Mechanical Design</span>
+          </div>
+        </div>
+        <!-- Skills Gained -->
+        <div class="info-card">
+          <h3><i class="fas fa-graduation-cap"></i> Skills Gained</h3>
+          <div class="tech-tags">
+            <span class="tech-tag">Teamwork</span>
+            <span class="tech-tag">Recycling Innovation</span>
+            <span class="tech-tag">Thermal Management</span>
+            <span class="tech-tag">Sustainable Engineering</span>
+            <span class="tech-tag">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
