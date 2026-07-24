@@ -1,6 +1,5 @@
-[submodule "PycharmProjects/pythonProject6/PycharmProjects/pythonProject6/rajaprerak.github.io"]
-	path = PycharmProjects/pythonProject6/PycharmProjects/pythonProject6/rajaprerak.github.io
-	url = https://github.com/rajaprerak/rajaprerak.github.io
 [submodule "saifuddinrakib.github.io"]
-	path = saifuddinrakib.github.io
-	url = https://github.com/saifuddinrakib/saifuddinrakib.github.io.git
+    path = saifuddinrakib.github.io
+    url  = https://github.com/saifuddinrakib/saifuddinrakib.github.io.git
+    # branch = main   # optional: track a specific branch
+	
